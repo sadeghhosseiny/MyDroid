@@ -6,28 +6,49 @@ function SignInPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSignIn = () => {
-        useEffect(() => {
-            axios({
-                method: "POST",
-                url: 'http://localhost:8080/login',
-                headers: {
-                    'Content-Type': 'application/json',
-
-                },
-                data: {
-                    username,
-                    password
-                }
+    const fetchData = React.useCallback(() => {
+        axios({
+            "method": "POST",
+            "url": "http://localhost:8080/login",
+            "headers": {
+                "content-type": "application/json"
+            },
+            data: {
+                username,
+                password
+            }
+        })
+            .then((response) => {
+                setResponseData(response.data)
             })
-                .then(res => {
-                    console.log(res);
-                }).catch(err => {
-                    console.log(err);
-                    console.log("fuck this shit");
-                })
-        }, [])
-    }
+            .catch((error) => {
+                console.log(error)
+            })
+    }, [])
+
+    React.useEffect(() => {
+        fetchData()
+    }, [fetchData])
+
+
+    // const handleSignIn = (e) => {
+    //     useEffect(() => {
+    //         axios({
+    //             method: "POST",
+    //             url: 'http://localhost:8080/login',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+
+    //             },
+    //         })
+    //             .then(res => {
+    //                 console.log(res);
+    //             }).catch(err => {
+    //                 console.log(err);
+    //                 console.log("fuck this shit");
+    //             })
+    //     }, [])
+    // }
 
     const validateForm = () => {
         return username.length > 0 && password.length > 0;
@@ -68,11 +89,10 @@ function SignInPage() {
                     </div>
                     <div className="text-center mb-3">
                         <button disabled={!validateForm()}
-                            onClick={handleSignIn}
+                            onClick={fetchData}
                             className="btn btn-outline-info text-capitalize py-3 px-5">
                             sign in
                         </button>
-
                     </div>
                 </form>
             </div>
