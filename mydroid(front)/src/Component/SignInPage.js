@@ -5,9 +5,11 @@ import axios from 'axios';
 function SignInPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [state, setState] = React.useState(null);
 
-    const handleSignIn = () => {
-        useEffect(() => {
+
+        React.useEffect(() => {
+            alert('wadwadwa')
             axios({
                 method: "POST",
                 url: 'http://localhost:8080/login',
@@ -27,7 +29,6 @@ function SignInPage() {
                     console.log("fuck this shit");
                 })
         }, [])
-    }
 
     const validateForm = () => {
         return username.length > 0 && password.length > 0;
@@ -68,7 +69,10 @@ function SignInPage() {
                     </div>
                     <div className="text-center mb-3">
                         <button disabled={!validateForm()}
-                            onClick={handleSignIn}
+                            onClick={() => {
+                                // Use the state inside an event handler
+                                setState(state + 1);
+                            }}
                             className="btn btn-outline-info text-capitalize py-3 px-5">
                             sign in
                         </button>
