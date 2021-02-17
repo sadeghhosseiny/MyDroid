@@ -6,7 +6,6 @@
     /* text-align: center; */
     height: 100%;
 
-
 }
 
 body {
@@ -46,8 +45,9 @@ body {
 }
 
 .container {
-    border: 0.5px solid;
+    border: 2px solid;
     background-color: white;
+    border-radius: 8px;
 }
 
 .border {
