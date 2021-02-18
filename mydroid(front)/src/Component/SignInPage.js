@@ -31,9 +31,7 @@ function SignInPage() {
     // }, [fetchData])
 
 
-    const handleSignIn = (e) => {
-
-
+    const handleSignIn = () => {
         axios({
             "method": "POST",
             "url": "http://localhost:8080/login",

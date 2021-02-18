@@ -1,22 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './SignUp.module.css';
+import axios from 'axios';
 
 function SignUp() {
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [isClicked, setIsClicked] = useState(false);
+    // const [isClicked, setIsClicked] = useState(false);
 
-    // const handleSignIn = () => {
+    const handleSignUp = () => {
+        axios({
+            "method": "POST",
+            "url": "http://localhost:8080/signup",
+            "headers": {
+                "contentType": "applicatioin/json"
+            },
 
-    // }
+            data: {
+                firstKey: username,
+                secondKey: password
+            }
+
+        })
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    useEffect(() => {
+        handleSignUp
+    }, [])
 
     const validateForm = () => {
         return username.length > 0 && password.length > 0;
     }
 
-    const checkField = () => {
-        setIsClicked(true)
-    }
+    // const checkField = () => {
+    //     setIsClicked(true)
+    // }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -32,12 +56,12 @@ function SignUp() {
                     <div className={`${styles.content} my-5 mx-auto`}>
                         <input className={`input ${styles.input}`} type="text" placeholder="Username"
                             onChange={(e) => setUsername(e.target.value)} />
-                            {isClicked ? !username ? (
-                              <span className={`${styles.warningIcon}`}>
-                              !
-                              </span>
-                          ) : '' : ''}
-                          <span className={`${styles.border}`} />
+                        {/* {isClicked ? username.length == 0 ? (
+                            <span className={`${styles.warningIcon}`}>
+                                !
+                            </span>
+                        ) : '' : ''} */}
+                        <span className={`${styles.border}`} />
                     </div>
                     <div className={`${styles.content} my-5 mx-auto`}>
                         <input className={`input ${styles.input}`} type="text" placeholder="Password"
@@ -46,7 +70,7 @@ function SignUp() {
                         <span className={`${styles.border}`}></span>
                     </div>
                     <div className="text-center mb-3">
-                        <button onClick={checkField}
+                        <button onClick={handleSignUp} disabled={!validateForm()}
                             className="btn btn-outline-info text-capitalize py-3 px-5">
                             sign up
                         </button>
