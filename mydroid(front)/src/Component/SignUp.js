@@ -3,15 +3,35 @@ import styles from './SignUp.module.css';
 
 function SignUp() {
     return (
+        // <div>
         <div className={`${styles.mainContainer}`}>
-            <div className="container d-flex">
-                <form>
-                    <input className="my-3 mx-3" />
-                    <input className="my-3" />
+            <h1 className="text-center font-weight-bold">MyDroid</h1>
+
+            <div class={`container ${styles.container} mt-3`}>
+                <form onSubmit={handleSubmit}>
+
+                    <div class={`${styles.content} my-5 mx-auto`}>
+                        <input class={`input ${styles.input}`} type="text" placeholder="Username"
+                            onChange={(e) => setUsername(e.target.value)} />
+                        <span class={`${styles.border}`}></span>
+                    </div>
+                    <div class={`${styles.content} my-5 mx-auto`}>
+                        <input class={`input ${styles.input}`} type="text" placeholder="Password"
+                            onChange={(e) => setPassword(e.target.value)} />
+                        <span class={`${styles.border}`}></span>
+                    </div>
+                    <div className="text-center mb-3">
+                        <button disabled={!validateForm()}
+                            onClick={handleSignIn}
+                            className="btn btn-outline-info text-capitalize py-3 px-5">
+                            sign in
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     )
+
 }
 
 export default SignUp
