@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import styles from './SignUp.module.css';
 
 function SignUp() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
     return (
-        // <div>
+
         <div className={`${styles.mainContainer}`}>
             <h1 className="text-center font-weight-bold">MyDroid</h1>
 
