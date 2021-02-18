@@ -1,11 +1,8 @@
 .mainContainer {
     display: grid;
-    /* align-items: center; */
-    /* justify-content: center; */
     align-content: center;
-    /* text-align: center; */
     height: 100%;
-    background-color: rgb(154, 149, 160);
+    background: linear-gradient(#c0b7b7, #5b5b5f);
 }
 
 /* body {
@@ -27,6 +24,10 @@
     padding: 10px 10px;
     border-bottom: 1px solid #929fba;
 
+}
+
+.alaki {
+    position: absolute;
 }
 
 .input~.border {
