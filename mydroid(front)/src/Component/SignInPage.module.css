@@ -5,12 +5,12 @@
     align-content: center;
     /* text-align: center; */
     height: 100%;
-
-}
-
-body {
     background-color: rgb(154, 149, 160);
 }
+
+/* body {
+    
+} */
 
 :focus {
     outline: none;
