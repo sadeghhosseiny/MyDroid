@@ -6,7 +6,7 @@
 }
 
 /* body {
-    
+
 } */
 
 :focus {
@@ -26,10 +26,6 @@
 
 }
 
-.alaki {
-    position: absolute;
-}
-
 .input~.border {
     position: absolute;
     bottom: 0;
@@ -43,6 +39,14 @@
     width: 100%;
     border: 1px solid #4285F4 !important;
     transition: 0.5s;
+}
+
+.warningIcon {
+  color: red;
+  font-size: 1.6rem;
+  position: absolute;
+  top: 4px;
+  right: 20px;
 }
 
 .container {

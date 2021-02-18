@@ -4,7 +4,7 @@ import styles from './SignUp.module.css';
 function SignUp() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [IsValid, setIsValid] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
 
     // const handleSignIn = () => {
 
@@ -15,12 +15,7 @@ function SignUp() {
     }
 
     const checkField = () => {
-        if (username.length > 0) {
-            setIsValid(true);
-        }
-        else {
-            setIsValid(false);
-        }
+        setIsClicked(true)
     }
 
     const handleSubmit = (event) => {
@@ -35,12 +30,14 @@ function SignUp() {
                 <form onSubmit={handleSubmit}>
 
                     <div className={`${styles.content} my-5 mx-auto`}>
-                        <input class={`input ${styles.input}`} type="text" placeholder="Username"
+                        <input className={`input ${styles.input}`} type="text" placeholder="Username"
                             onChange={(e) => setUsername(e.target.value)} />
-                        <span className={`${styles.alaki}`}> {IsValid ? "" : "!"}</span>
-                        <span className={`${styles.border}`}>
-
-                        </span>
+                            {isClicked ? !username ? (
+                              <span className={`${styles.warningIcon}`}>
+                              !
+                              </span>
+                          ) : '' : ''}
+                          <span className={`${styles.border}`} />
                     </div>
                     <div className={`${styles.content} my-5 mx-auto`}>
                         <input className={`input ${styles.input}`} type="text" placeholder="Password"
