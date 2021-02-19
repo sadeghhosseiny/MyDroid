@@ -13,12 +13,12 @@ function SignUp() {
             "method": "POST",
             "url": "http://localhost:8080/signup",
             "headers": {
-                "contentType": "applicatioin/json"
+                "contentType": "application/json"
             },
 
             data: {
-                firstKey: username,
-                secondKey: password
+                username: username,
+                password: password
             }
 
         })
