@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SignInPage.module.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function SignInPage() {
     const [username, setUsername] = useState("");
@@ -99,12 +100,13 @@ function SignInPage() {
                         <span class={`${styles.border}`}></span>
                     </div>
                     <div className="text-center mb-3">
-                        <button disabled={!validateForm()}
-                            onClick={handleSignIn}
-
-                            className="btn btn-outline-info text-capitalize py-3 px-5">
-                            sign in
+                        <Link to="/HomePage">
+                            <button disabled={!validateForm()}
+                                onClick={handleSignIn}
+                                className="btn btn-outline-info text-capitalize py-3 px-5">
+                                sign in
                         </button>
+                        </Link>
                     </div>
                 </form>
             </div>

@@ -5,18 +5,22 @@ import SignIN from './Component/SignInPage';
 import SignUP from './Component/SignUp';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './Component/NavBar';
+import HomePage from './Component/HomePage';
 
 function App() {
   return (
     <Router>
       <div className="appClass">
         <Switch>
-          <NavBar />
           <Route exact path="/">
             <SignUP />
           </Route>
           <Route path="/sign in">
             <SignIN />
+          </Route>
+          <Route>
+            <NavBar />
+            <HomePage />
           </Route>
         </Switch>
       </div>
