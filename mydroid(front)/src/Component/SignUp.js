@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SignUp.module.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function SignUp() {
 
@@ -70,10 +71,12 @@ function SignUp() {
                         <span className={`${styles.border}`}></span>
                     </div>
                     <div className="text-center mb-3">
-                        <button onClick={handleSignUp} disabled={!validateForm()}
-                            className="btn btn-outline-info text-capitalize py-3 px-5">
-                            sign up
+                        <Link to="/sign in">
+                            <button onClick={handleSignUp} disabled={!validateForm()}
+                                className="btn btn-outline-info text-capitalize py-3 px-5">
+                                sign up
                         </button>
+                        </Link>
                     </div>
                 </form>
             </div>

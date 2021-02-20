@@ -5,6 +5,7 @@ import axios from 'axios';
 function SignInPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [data, setData] = useState("");
 
     // const fetchData = React.useCallback(() => {
     //     axios({
@@ -41,14 +42,16 @@ function SignInPage() {
             },
 
             data: {
-                firstKey: username,
-                secondKey: password
+                username: username,
+                password: password
             }
         })
             .then(res => {
                 console.log(res);
-            }).catch(err => {
-                console.log(err);
+            })
+            .catch(e => {
+                console.log(e);
+
             })
     }
 
@@ -98,6 +101,7 @@ function SignInPage() {
                     <div className="text-center mb-3">
                         <button disabled={!validateForm()}
                             onClick={handleSignIn}
+
                             className="btn btn-outline-info text-capitalize py-3 px-5">
                             sign in
                         </button>
