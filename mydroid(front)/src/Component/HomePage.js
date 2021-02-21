@@ -16,14 +16,20 @@ function HomePage() {
             })
     }
 
-    useEffect(() => {
-        getApps();
-    }, [])
-
     return (
         <div>
-            <button className="btn btn-outline-warning"
+            <h1 className="text-capitalize m-3">the new games</h1>
+            <div className="col-lg-2">
+
+            </div>
+            <button className="btn btn-outline-warning m-5"
                 onClick={getApps}>Click it Bitch</button>
+
+            <ul>
+                {data.map(item => {
+                    return <li key={item.id}>{item.data}</li>
+                })}
+            </ul>
         </div>
     )
 }
