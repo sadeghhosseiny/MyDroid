@@ -30,12 +30,12 @@ function HomePage() {
                 onClick={getApps}>Click it Bitch
                 </button>
 
-            <div>
+            <ul>
                 {data.map(d =>
-                    <li key={d.id}>{d.data}</li>
+                    <li key={d.ID}>{d.data}</li>
                 )}
                 {/* {JSON.stringify(data)} */}
-            </div>
+            </ul>
         </div>
     )
 }
