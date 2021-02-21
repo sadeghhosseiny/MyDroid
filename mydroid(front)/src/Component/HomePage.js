@@ -5,7 +5,7 @@ import { MyContext } from './Context';
 
 function HomePage() {
     // const [data, setData] = useState([]);
-    const Consumer = useContext(MyContext);
+    //const Consumer = useContext(MyContext);
     // const getApps = () => {
     //     axios.get("http://localhost:8080/app/get")
     //         .then(res => {
@@ -29,19 +29,11 @@ function HomePage() {
             <div className="col-lg-2">
 
             </div>
-            <Consumer>
-                {/* <button className="btn btn-outline-warning m-5"
+
+            {/* <button className="btn btn-outline-warning m-5"
                     onClick={getApps}>Click it Bitch
                 </button> */}
 
-                {
-                    value => {
-                        return (
-                            value.data.map(d => <li key={d.ID}>{d.data}</li>)
-                        )
-                    }
-                }
-            </Consumer>
         </div>
     )
 }

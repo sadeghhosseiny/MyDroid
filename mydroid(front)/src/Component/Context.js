@@ -1,31 +1,30 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const MyContext = React.createContext();
+export const MyContext = React.createContext();
 
-function Context(props) {
+export const ContextProvider = (props) => {
 
     const [posts, setPosts] = useState([]);
 
-    const PostHandler = () => {
+    useEffect(() => {
+
         axios.get("http://localhost:8080/app/get")
             .then(res => {
                 setPosts([res.data]);
+                console.log(res.data);
             })
             .catch(err => {
                 console.log(err);
             })
-    }
-
-    useEffect(() => {
-        PostHandler;
     }, [])
 
+
     return (
-        <MyContext.Provider value={{ ...posts }}>
+        <MyContext.Provider value={{ posts }}>
             {props.children}
+
         </MyContext.Provider>
     )
 }
 
-export { MyContext, Context };

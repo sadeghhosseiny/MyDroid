@@ -6,8 +6,7 @@ import SignUP from './Component/SignUp';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './Component/NavBar';
 import HomePage from './Component/HomePage';
-//import { useContext } from 'react';
-import { Context } from './Component/Context';
+import { ContextProvider } from './Component/Context';
 
 function App() {
 
