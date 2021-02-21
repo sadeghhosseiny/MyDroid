@@ -6,10 +6,15 @@ import SignUP from './Component/SignUp';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './Component/NavBar';
 import HomePage from './Component/HomePage';
+//import { useContext } from 'react';
+import { Context } from './Component/Context';
 
 function App() {
+
   return (
+
     <Router>
+
       <div className="appClass">
         <Switch>
           <Route exact path="/">
@@ -24,6 +29,7 @@ function App() {
           </Route>
         </Switch>
       </div>
+
     </Router>
   );
 }

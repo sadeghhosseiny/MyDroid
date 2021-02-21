@@ -1,41 +1,47 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useContext } from 'react';
+import { MyContext } from './Context';
+// , { useEffect, useState }
+//import axios from 'axios';
 
 function HomePage() {
-    const [data, setData] = useState([]);
-
-    const getApps = () => {
-        axios.get("http://localhost:8080/app/get")
-            .then(res => {
-                setData([res.data])
-                //console.log(data);
-                console.log(res.data)
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }
+    // const [data, setData] = useState([]);
+    const Consumer = useContext(MyContext);
+    // const getApps = () => {
+    //     axios.get("http://localhost:8080/app/get")
+    //         .then(res => {
+    //             setData([res.data])
+    //             //console.log(data);
+    //             console.log(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //         })
+    // }
 
     // useEffect(() => {
-    //     getApps();
+    //     getApps;
     // }, [])
 
     return (
+
         <div>
             <h1 className="text-capitalize m-3">the new games</h1>
             <div className="col-lg-2">
 
             </div>
-            <button className="btn btn-outline-warning m-5"
-                onClick={getApps}>Click it Bitch
-                </button>
+            <Consumer>
+                {/* <button className="btn btn-outline-warning m-5"
+                    onClick={getApps}>Click it Bitch
+                </button> */}
 
-            <ul>
-                {data.map(d =>
-                    <li key={d.ID}>{d.data}</li>
-                )}
-                {/* {JSON.stringify(data)} */}
-            </ul>
+                {
+                    value => {
+                        return (
+                            value.data.map(d => <li key={d.ID}>{d.data}</li>)
+                        )
+                    }
+                }
+            </Consumer>
         </div>
     )
 }
