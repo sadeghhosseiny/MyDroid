@@ -5,14 +5,14 @@ export const MyContext = React.createContext();
 
 export const ContextProvider = (props) => {
 
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState();
 
     useEffect(() => {
 
         axios.get("http://localhost:8080/app/get")
             .then(res => {
-                setPosts([res.data]);
-                console.log(res.data);
+                const result = JSON.parse(res.data.data);
+                setPosts(result)
             })
             .catch(err => {
                 console.log(err);
