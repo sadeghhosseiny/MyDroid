@@ -6,10 +6,10 @@ export const MyContext = React.createContext();
 export const ContextProvider = (props) => {
 
     const [posts, setPosts] = useState();
-
+    //const apikey = "23cd336deec298ae53f2";
     useEffect(() => {
 
-        axios.get("http://localhost:8080/app/get")
+        axios.get(`http://localhost:8080/app/get`)
             .then(res => {
                 const result = JSON.parse(res.data.data);
                 setPosts(result)

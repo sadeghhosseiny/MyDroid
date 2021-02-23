@@ -86,18 +86,18 @@ function SignInPage() {
         <div className={`${styles.mainContainer}`}>
             <h1 className="text-center font-weight-bold">MyDroid</h1>
 
-            <div class={`container ${styles.container} mt-3`}>
+            <div className={`container ${styles.container} mt-3`}>
                 <form onSubmit={handleSubmit}>
 
-                    <div class={`${styles.content} my-5 mx-auto`}>
-                        <input class={`input ${styles.input}`} type="text" placeholder="Username"
+                    <div className={`${styles.content} my-5 mx-auto`}>
+                        <input className={`input ${styles.input}`} type="text" placeholder="Username"
                             onChange={(e) => setUsername(e.target.value)} />
-                        <span class={`${styles.border}`}></span>
+                        <span className={`${styles.border}`}></span>
                     </div>
-                    <div class={`${styles.content} my-5 mx-auto`}>
-                        <input class={`input ${styles.input}`} type="text" placeholder="Password"
+                    <div className={`${styles.content} my-5 mx-auto`}>
+                        <input className={`input ${styles.input}`} type="text" placeholder="Password"
                             onChange={(e) => setPassword(e.target.value)} />
-                        <span class={`${styles.border}`}></span>
+                        <span className={`${styles.border}`}></span>
                     </div>
                     <div className="text-center mb-3">
                         <Link to="/HomePage">
