@@ -1,4 +1,12 @@
+.Row .Container {
+    width: 100vw !important;
+    /* padding: 0 !important; */
+}
+
+.Row {
+    width: 100vw !important;
+}
+
 .Container {
-    margin-left: 5px !important;
-    padding: 0 !important;
+    margin-left: 5px;
 }

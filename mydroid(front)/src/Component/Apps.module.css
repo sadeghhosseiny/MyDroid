@@ -1,5 +1,13 @@
 .image {
-    width: 164px;
-    height: 160px;
+    width: 128px;
+    height: 130px;
     background-color: coral;
+}
+
+/* .cardFooter {
+    border-radius: 20px !important;
+} */
+
+.Card {
+    width: fit-content;
 }

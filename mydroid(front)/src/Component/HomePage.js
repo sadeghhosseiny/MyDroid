@@ -30,24 +30,26 @@ function HomePage() {
 
     return (
 
-        <div>
-            <h1 className="text-capitalize m-3">the new games</h1>
+        <React.Fragment>
+
+            <h1 className="text-capitalize m-3 pl-4 ml-5">the new games</h1>
 
             <div className={`container ${styles.Container}`}>
-                <div className="row">
+                <div className={`row ${styles.Row}`}>
 
                     {posts ? posts.map(post => <Apps key={post.ID} data={post} />) : "LOADING"}
                 </div>
 
+                {/* <button className="btn btn-outline-warning m-5"
+                        onClick={getApps}>Click it Bitch
+                    </button> */}
+                {/* {data ? data.map(da => <img src={da.ImageUrl} />) : "Pic, "}
+                    {data ? data.map((post) => { return <li key={post.ID}>{post.ImageUrl}</li> }) : "Loading"} */}
             </div>
+        </React.Fragment>
 
-            {/* <button className="btn btn-outline-warning m-5"
-                    onClick={getApps}>Click it Bitch
-                </button> */}
-            {/* {data ? data.map(da => <img src={da.ImageUrl} />) : "Pic, "}
-                {data ? data.map((post) => { return <li key={post.ID}>{post.ImageUrl}</li> }) : "Loading"} */}
 
-        </div>
+
 
 
 
