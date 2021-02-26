@@ -1,12 +1,9 @@
-.Row .Container {
-    width: 100vw !important;
-    /* padding: 0 !important; */
-}
-
-.Row {
-    width: 100vw !important;
-}
-
 .Container {
-    margin-left: 5px;
+    width: 100vw !important;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.Container .Row {
+    width: 100% !important;
 }

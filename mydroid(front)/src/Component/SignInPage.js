@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SignInPage.module.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 
 function SignInPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [data, setData] = useState("");
+
+    const [text, setText] = useState("");
+    let history = useHistory();
+    const [isValid, setValid] = useState(false);
 
     // const fetchData = React.useCallback(() => {
     //     axios({
@@ -48,12 +51,21 @@ function SignInPage() {
             }
         })
             .then(res => {
-                console.log(res);
+                console.log(res.data.result);
+                if (res.data.result === "success") {
+                    setValid(true);
+                    history.push("/HomePage");
+                }
+                else {
+                    setText("fuck");
+                }
             })
             .catch(e => {
                 console.log(e);
 
             })
+
+
     }
 
 
@@ -61,6 +73,13 @@ function SignInPage() {
         handleSignIn
     }, [])
 
+    // const handleClick = () => {
+    //     if (isValid === true) {
+    //         redirect("/HomePage");
+    //     } else {
+    //         console.log("fail");
+    //     }
+    // }
 
     const validateForm = () => {
         return username.length > 0 && password.length > 0;
@@ -100,13 +119,14 @@ function SignInPage() {
                         <span className={`${styles.border}`}></span>
                     </div>
                     <div className="text-center mb-3">
-                        <Link to="/HomePage">
-                            <button disabled={!validateForm()}
-                                onClick={handleSignIn}
-                                className="btn btn-outline-info text-capitalize py-3 px-5">
-                                sign in
+                        {/* <Link to="/HomePage"> */}
+                        <button disabled={!validateForm()}
+                            onClick={handleSignIn}
+                            className="btn btn-outline-info text-capitalize py-3 px-5">
+                            sign in
                         </button>
-                        </Link>
+                        {handleSignIn && !isValid && <p>{text}</p>}
+                        {/* </Link> */}
                     </div>
                 </form>
             </div>
