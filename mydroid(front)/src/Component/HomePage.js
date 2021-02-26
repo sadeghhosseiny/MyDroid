@@ -35,17 +35,18 @@ function HomePage() {
 
         <React.Fragment>
 
-            <h1 className="text-capitalize m-3 pl-4 ml-5">the new games</h1>
+            <h1 className="text-capitalize m-3 pl-4 ml-5">the best apps</h1>
 
             <div className={`${styles.Container}`}>
                 <div className={`row ${styles.Row}`}>
+
                     {console.log(apps)}
 
                     {apps ? apps.map(app => <Apps key={app.ID} data={app} />) : "LOADING"}
                 </div>
                 <br />
             </div>
-            <h1 className="text-capitalize m-3 pl-4 ml-5">the new apps</h1>
+            <h1 className="text-capitalize m-3 pl-4 ml-5">the best games</h1>
 
 
 

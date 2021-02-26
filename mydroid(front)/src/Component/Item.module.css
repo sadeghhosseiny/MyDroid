@@ -1,0 +1,27 @@
+.appImage {
+    width: 350px;
+    height: 350px;
+}
+
+.appContainer {
+    position: relative;
+}
+
+.appName {
+    position: absolute;
+    left: 500px;
+    top: 100px;
+
+}
+
+.appPublisher {
+    position: absolute;
+    left: 500px;
+    top: 190px;
+}
+
+.appDescription {
+    position: absolute;
+    left: 500px;
+    top: 335px;
+}

@@ -11,8 +11,7 @@ export const ContextProvider = (props) => {
     //const apikey = "23cd336deec298ae53f2";
     useEffect(() => {
 
-        axios.get(`http://localhost:8080/best/Apps
-        `)
+        axios.get(`http://localhost:8080/best/Apps`)
             .then(res => {
                 const result = JSON.parse(res.data.data);
                 setApps(result)
@@ -32,7 +31,8 @@ export const ContextProvider = (props) => {
     // }
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/best/Games`)
+        axios.get(`http://localhost:8080/best/Action%20Games
+        `)
             .then(res => {
                 console.log(res.data)
             })

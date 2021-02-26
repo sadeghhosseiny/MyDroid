@@ -57,7 +57,7 @@ function SignInPage() {
                     history.push("/HomePage");
                 }
                 else {
-                    setText("fuck");
+                    setText("username or password does not match");
                 }
             })
             .catch(e => {
