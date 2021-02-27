@@ -11,7 +11,7 @@ function HomePage() {
     const { bestApps } = useContext(MyContext);
     const { bestGames } = useContext(MyContext);
     const { latestApps } = useContext(MyContext);
-
+    const { latestGames } = useContext(MyContext);
 
     // const getApps = () => {
     //     setData(posts);
@@ -54,7 +54,7 @@ function HomePage() {
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
-                        {bestGames ? bestGames.map(game => <Apps key={game.ID} bestDataApp={game} />) : " LOADING"}
+                        {bestGames ? bestGames.map(game => <Apps key={game.ID} bestDataGame={game} />) : " LOADING"}
                     </div>
                     <br />
                 </div>
@@ -63,7 +63,16 @@ function HomePage() {
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
-                        {latestApps ? latestApps.map(lapp => <Apps key={lapp.ID} bestDataApp={lapp} />) : " LOADING"}
+                        {latestApps ? latestApps.map(lapp => <Apps key={lapp.ID} latestApp={lapp} />) : " LOADING"}
+                    </div>
+                    <br />
+                </div>
+
+                <h1 className="text-capitalize m-3 pl-4 ml-5">the latest games</h1>
+                <div className={`${styles.Container}`}>
+                    <div className={`row ${styles.Row}`}>
+
+                        {latestGames ? latestGames.map(lgame => <Apps key={lgame.ID} latestGame={lgame} />) : " LOADING"}
                     </div>
                     <br />
                 </div>

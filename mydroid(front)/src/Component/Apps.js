@@ -7,7 +7,7 @@ import Item from './Item';
 const baseHost = "http://localhost:8080";
 
 
-function Apps({ bestDataApp, bestDataGame, latestApp }) {
+function Apps({ bestDataApp, bestDataGame, latestApp, latestGame }) {
 
     return (
         <React.Fragment>
@@ -40,7 +40,7 @@ function Apps({ bestDataApp, bestDataGame, latestApp }) {
                     <div className={`img-container ${styles.ImageContainer}`}>
                         <Link to={`/item/${bestDataGame.ID}`}>
                             <img className={`card-img-top ${styles.image}`}
-                                src={baseHost + bestDataGames.ImageUrl} alt="Image" />
+                                src={baseHost + bestDataGame.ImageUrl} alt="Image" />
                             <div className={`${styles.over}`}>
                                 {console.log(bestDataGame.ImageUrl)}
                             </div>
@@ -48,7 +48,7 @@ function Apps({ bestDataApp, bestDataGame, latestApp }) {
                     </div>
                     <div className={`card-footer ${styles.cardFooter}`}>
                         <p className="font-weight-bold mb-0">
-                            {bestDataGames.Name}
+                            {bestDataGame.Name}
                         </p>
                         <p className="text-secondary mb-0">
                             {bestDataGame.Category}
@@ -61,7 +61,7 @@ function Apps({ bestDataApp, bestDataGame, latestApp }) {
             {latestApp && <div className={`col-4 col-md-2 my-2 ${styles.Apps}`}>
                 <div className={`card mx-auto my-auto ${styles.Card}`}>
                     <div className={`img-container ${styles.ImageContainer}`}>
-                        <Link to={`/item/${bestDataGame.ID}`}>
+                        <Link to={`/item/${latestApp.ID}`}>
                             <img className={`card-img-top ${styles.image}`}
                                 src={baseHost + latestApp.ImageUrl} alt="Image" />
                             <div className={`${styles.over}`}>
@@ -75,6 +75,28 @@ function Apps({ bestDataApp, bestDataGame, latestApp }) {
                         </p>
                         <p className="text-secondary mb-0">
                             {latestApp.Category}
+                        </p>
+                    </div>
+                </div>
+            </div>}
+
+            {latestGame && <div className={`col-4 col-md-2 my-2 ${styles.Apps}`}>
+                <div className={`card mx-auto my-auto ${styles.Card}`}>
+                    <div className={`img-container ${styles.ImageContainer}`}>
+                        <Link to={`/item/${latestGame.ID}`}>
+                            <img className={`card-img-top ${styles.image}`}
+                                src={baseHost + latestGame.ImageUrl} alt="Image" />
+                            <div className={`${styles.over}`}>
+
+                            </div>
+                        </Link>
+                    </div>
+                    <div className={`card-footer ${styles.cardFooter}`}>
+                        <p className="font-weight-bold mb-0">
+                            {latestGame.Name}
+                        </p>
+                        <p className="text-secondary mb-0">
+                            {latestGame.Category}
                         </p>
                     </div>
                 </div>
