@@ -3,6 +3,7 @@ import styles from './NavBar.module.css';
 import { Link } from 'react-router-dom';
 
 function NavBar() {
+
     return (
         <nav className="navbar navbar-expand navbar-dark bg-dark py-3">
             <a className={`${styles.navbarBrand} navbar-brand font-weight-bold`}>

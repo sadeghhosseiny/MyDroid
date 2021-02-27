@@ -7,6 +7,7 @@ export const ContextProvider = (props) => {
 
     const [bestApps, setBestApps] = useState();
     const [bestGames, setBestgames] = useState();
+    const [latestApps, setLatestApps] = useState();
 
     useEffect(() => {
 
@@ -27,18 +28,28 @@ export const ContextProvider = (props) => {
     // }
 
     useEffect(() => {
-        axios.get(`http://localhost:8080/best/Games
-        `)
+
+        axios.get(`http://localhost:8080/best/Games`)
             .then(res => {
                 const resBestGames = res.data.data;
                 setBestgames(resBestGames);
+            })
+
+    }, [])
+
+    useEffect(() => {
+        axios.get(`http://localhost:8080/latest/Apps`)
+            .then(res => {
+                const resLatestApps = res.data.data;
+                setLatestApps(resLatestApps);
             })
     }, [])
 
     return (
         <MyContext.Provider value={{
             bestApps,
-            bestGames
+            bestGames,
+            latestApps
             //detail: handleDetail()
         }}>
             {props.children}

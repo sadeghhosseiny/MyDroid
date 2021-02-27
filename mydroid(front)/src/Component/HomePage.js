@@ -10,6 +10,7 @@ function HomePage() {
 
     const { bestApps } = useContext(MyContext);
     const { bestGames } = useContext(MyContext);
+    const { latestApps } = useContext(MyContext);
 
 
     // const getApps = () => {
@@ -35,32 +36,46 @@ function HomePage() {
 
         <React.Fragment>
 
-            <h1 className="text-capitalize m-3 pl-4 ml-5">the best apps</h1>
+            <div className={`${styles.MainDiv}`}>
 
-            <div className={`${styles.Container}`}>
-                <div className={`row ${styles.Row}`}>
+                <h1 className="text-capitalize m-3 pl-4 ml-5">the best apps</h1>
 
-                    {console.log(bestApps)}
+                <div className={`${styles.Container}`}>
+                    <div className={`row ${styles.Row}`}>
 
-                    {bestApps ? bestApps.map(app => <Apps key={app.ID} data={app} />) : " LOADING"}
+                        {console.log(bestApps)}
+
+                        {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
+                    </div>
+                    <br />
                 </div>
-                <br />
-            </div>
-            <h1 className="text-capitalize m-3 pl-4 ml-5">the best games</h1>
-            {console.log(bestGames)}
-            {/* <button className="btn btn-outline-warning m-5"
+
+                <h1 className="text-capitalize m-3 pl-4 ml-5">the best games</h1>
+                <div className={`${styles.Container}`}>
+                    <div className={`row ${styles.Row}`}>
+
+                        {bestGames ? bestGames.map(game => <Apps key={game.ID} bestDataApp={game} />) : " LOADING"}
+                    </div>
+                    <br />
+                </div>
+
+                <h1 className="text-capitalize m-3 pl-4 ml-5">the latest apps</h1>
+                <div className={`${styles.Container}`}>
+                    <div className={`row ${styles.Row}`}>
+
+                        {latestApps ? latestApps.map(lapp => <Apps key={lapp.ID} bestDataApp={lapp} />) : " LOADING"}
+                    </div>
+                    <br />
+                </div>
+
+                {/* <button className="btn btn-outline-warning m-5"
                         onClick={getApps}>Click it Bitch
                     </button> */}
-            {/* {data ? data.map(da => <img src={da.ImageUrl} />) : "Pic, "}
+                {/* {data ? data.map(da => <img src={da.ImageUrl} />) : "Pic, "}
                     {data ? data.map((post) => { return <li key={post.ID}>{post.ImageUrl}</li> }) : "Loading"} */}
 
+            </div>
         </React.Fragment>
-
-
-
-
-
-
     )
 }
 
