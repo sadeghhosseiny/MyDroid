@@ -14,6 +14,10 @@
 
 }
 
+.mainDiv {
+    min-width: 1000px;
+}
+
 .appPublisher {
     position: absolute;
     left: 500px;
@@ -24,4 +28,16 @@
     position: absolute;
     left: 500px;
     top: 335px;
+}
+
+.commentDiv {
+    list-style: none;
+    border-radius: 5px;
+    height: auto;
+    width: 1247px;
+    background-color: rgb(230, 220, 220);
+}
+
+.line {
+    width: 1247px;
 }

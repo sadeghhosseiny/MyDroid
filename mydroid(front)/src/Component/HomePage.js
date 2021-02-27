@@ -42,7 +42,7 @@ function HomePage() {
 
                     {console.log(apps)}
 
-                    {apps ? apps.map(app => <Apps key={app.ID} data={app} />) : "LOADING"}
+                    {apps ? apps.map(app => <Apps key={app.ID} data={app} />) : "  LOADING"}
                 </div>
                 <br />
             </div>

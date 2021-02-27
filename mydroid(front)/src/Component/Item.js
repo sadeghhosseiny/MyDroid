@@ -11,7 +11,8 @@ function Item() {
     const baseUrl = "http://localhost:8080"
 
     const [item, setItem] = useState([])
-    const [comment, setComment] = useState({})
+    const [comment, setComment] = useState()
+    const [addComment, setAddComment] = useState("")
 
     useEffect(() => {
         fetchItem();
@@ -33,12 +34,14 @@ function Item() {
     }
 
     const showComments = () => {
-        axios.get(`http://localhost:8080/app/comments/4`)
+        axios.get(`http://localhost:8080/app/comments/${appId}`)
             .then(res => {
-                const parseComment = JSON.parse(res.data.message)
+                const parseComment = JSON.parse(res.data.message);
+                console.log(parseComment);
                 setComment(parseComment)
-                //console.log(res.data);
-                //console.log(parseComment.Content ? parseComment.Content : "");
+            })
+            .catch(err => {
+                console.log(err);
             })
     }
 
@@ -47,8 +50,9 @@ function Item() {
         showComments();
     }, [])
 
+
     return (
-        <div>
+        <div className={`${styles.mainDiv}`}>
             {/* <h1>this is item</h1> */}
             <div className={`${styles.appContainer}`}>
 
@@ -60,11 +64,22 @@ function Item() {
                     <img className={`m-5 ${styles.appImage}`} src={baseUrl + item.ImageUrl} alt="app" />
                 </div>
             </div>
-            <hr className="font-weight-bold bg-info w-75 ml-5" />
+            <hr className={`font-weight-bold bg-info ml-5 ${styles.line}`} />
             <div>
-                {comment ? comment.map(com => <li>{com.Content}</li>) : "fuck"}
-                {console.log(comment)}
+                <h1 className="ml-5">Comments</h1>
             </div>
+            <div>
+                <div className={`ml-5 my-2 ${styles.commentDiv}`}>
+                    {comment ? comment.map(com => <li className="px-2 py-2">{com.Content}</li>) : "fuck"}
+                </div>
+
+            </div>
+
+            <form>
+                <textarea type="text" placeholder="Add Your Comment"
+                    onChange={(e) => setAddComment(e.target.value)}
+                    className="ml-5" />
+            </form>
             {/* <h1>{data.item.Name}</h1> */}
             {/* <p>{props.ID}</p> */}
         </div>
