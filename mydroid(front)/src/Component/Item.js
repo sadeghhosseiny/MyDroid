@@ -51,6 +51,33 @@ function Item() {
     }, [])
 
 
+    const handleComment = (e) => {
+        e.preventDefault();
+    }
+
+    const handleSendComment = () => {
+        axios({
+            "method": "POST",
+            "url": "http://localhost:8080/app/comments",
+            "headers": {
+                "Content-Type": "application/json",
+            },
+
+            data: {
+                "sender": 312,
+                "app": match.params ? match.params.id : "",
+                "content": addComment
+            }
+        })
+            .then(res => {
+                console.log(res);
+            })
+    }
+
+    useEffect(() => {
+        handleSendComment;
+    }, [])
+
     return (
         <div className={`${styles.mainDiv}`}>
             {/* <h1>this is item</h1> */}
@@ -75,10 +102,17 @@ function Item() {
 
             </div>
 
-            <form>
-                <textarea type="text" placeholder="Add Your Comment"
-                    onChange={(e) => setAddComment(e.target.value)}
-                    className="ml-5" />
+            <form onSubmit={handleComment}>
+                <div>
+
+                    <textarea type="text" placeholder="Add Your Comment"
+                        onChange={(e) => setAddComment(e.target.value)}
+                        className="ml-5 mt-4" />
+                </div>
+                <div >
+
+                    <button onClick={handleSendComment} className="ml-5 mt-2 btn btn-outline-success">add comment</button>
+                </div>
             </form>
             {/* <h1>{data.item.Name}</h1> */}
             {/* <p>{props.ID}</p> */}
