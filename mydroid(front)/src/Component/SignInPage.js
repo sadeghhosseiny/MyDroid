@@ -42,8 +42,9 @@ function SignInPage() {
             "url": "http://localhost:8080/user/login",
             "headers": {
                 "Content-Type": "application/json",
-
+                "Origin": "localhost:3000"
             },
+            "withCredentials": true,
 
             data: {
                 username: username,
