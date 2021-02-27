@@ -42,9 +42,9 @@ function SignInPage() {
             "url": "http://localhost:8080/user/login",
             "headers": {
                 "Content-Type": "application/json",
-                "Origin": "localhost:3000"
+                //"Origin": "localhost:3000"
             },
-            "withCredentials": true,
+            //"withCredentials": true,
 
             data: {
                 username: username,
@@ -121,12 +121,12 @@ function SignInPage() {
                     </div>
                     <div className="text-center mb-3">
                         {/* <Link to="/HomePage"> */}
+                        {handleSignIn && !isValid && <p className="text-danger">{text}</p>}
                         <button disabled={!validateForm()}
                             onClick={handleSignIn}
                             className="btn btn-outline-info text-capitalize py-3 px-5">
                             sign in
                         </button>
-                        {handleSignIn && !isValid && <p>{text}</p>}
                         {/* </Link> */}
                     </div>
                 </form>

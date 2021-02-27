@@ -6,19 +6,15 @@ export const MyContext = React.createContext();
 export const ContextProvider = (props) => {
 
     const [bestApps, setBestApps] = useState();
-    const [detail, setDetail] = useState([]);
+    const [bestGames, setBestgames] = useState();
 
-    //const apikey = "23cd336deec298ae53f2";
     useEffect(() => {
 
         axios.get(`http://localhost:8080/best/Apps`)
             .then(res => {
-                const result = JSON.parse(res.data.data);
-                setBestApps(result)
-                setDetail(result)
-            })
-            .catch(err => {
-                console.log(err);
+                const resBestApps = (res.data.data);
+                setBestApps(resBestApps);
+                console.log(res.data.data);
             })
     }, [])
 
@@ -34,14 +30,15 @@ export const ContextProvider = (props) => {
         axios.get(`http://localhost:8080/best/Games
         `)
             .then(res => {
-                console.log(res.data)
+                const resBestGames = res.data.data;
+                setBestgames(resBestGames);
             })
     }, [])
 
     return (
         <MyContext.Provider value={{
             bestApps,
-
+            bestGames
             //detail: handleDetail()
         }}>
             {props.children}

@@ -9,7 +9,7 @@ function HomePage() {
     //const [data, setData] = useState();
 
     const { bestApps } = useContext(MyContext);
-    //const { games } = useContext(MyContext);
+    const { bestGames } = useContext(MyContext);
 
 
     // const getApps = () => {
@@ -47,7 +47,7 @@ function HomePage() {
                 <br />
             </div>
             <h1 className="text-capitalize m-3 pl-4 ml-5">the best games</h1>
-
+            {console.log(bestGames)}
             {/* <button className="btn btn-outline-warning m-5"
                         onClick={getApps}>Click it Bitch
                     </button> */}

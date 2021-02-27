@@ -36,7 +36,7 @@ function Item() {
     const showComments = () => {
         axios.get(`http://localhost:8080/app/comments/${appId}`)
             .then(res => {
-                const parseComment = JSON.parse(res.data.message);
+                const parseComment = (res.data.message);
                 console.log(parseComment);
                 setComment(parseComment)
             })
