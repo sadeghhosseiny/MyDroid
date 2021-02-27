@@ -8,7 +8,7 @@ import styles from './HomePage.module.css';
 function HomePage() {
     //const [data, setData] = useState();
 
-    const { apps } = useContext(MyContext);
+    const { bestApps } = useContext(MyContext);
     //const { games } = useContext(MyContext);
 
 
@@ -40,9 +40,9 @@ function HomePage() {
             <div className={`${styles.Container}`}>
                 <div className={`row ${styles.Row}`}>
 
-                    {console.log(apps)}
+                    {console.log(bestApps)}
 
-                    {apps ? apps.map(app => <Apps key={app.ID} data={app} />) : "  LOADING"}
+                    {bestApps ? bestApps.map(app => <Apps key={app.ID} data={app} />) : " LOADING"}
                 </div>
                 <br />
             </div>

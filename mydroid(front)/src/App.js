@@ -28,6 +28,7 @@ function App() {
             <HomePage />
           </Route>
           <Route exact path="/item/:id">
+            <NavBar />
             <Item />
           </Route>
         </Switch>

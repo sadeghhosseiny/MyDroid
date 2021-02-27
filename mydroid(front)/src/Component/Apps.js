@@ -19,14 +19,21 @@ function Apps({ data }) {
                         <Link to={`/item/${data.ID}`}>
                             <img className={`card-img-top ${styles.image}`}
                                 src={baseHost + ImageUrl} alt="Image" />
+                            <div className={`${styles.over}`}>
+
+                            </div>
                         </Link>
                     </div>
-                    <div className={`card-footer`}>
-                        {Name}
-                        <p>{Category}</p>
+                    <div className={`card-footer ${styles.cardFooter}`}>
+                        <p className="font-weight-bold mb-0">
+                            {Name}
+                        </p>
+                        <p className="text-secondary mb-0">
+                            {Category}
+                        </p>
                     </div>
-
                 </div>
+
                 {/* <img src={data.ImageUrl} alt="fuck" /> */}
             </div>
         </React.Fragment>

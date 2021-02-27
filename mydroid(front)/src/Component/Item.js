@@ -110,11 +110,13 @@ function Item() {
 
                     <textarea type="text" placeholder="Add Your Comment"
                         onChange={(e) => setAddComment(e.target.value)}
-                        className="ml-5 mt-4" />
+                        className="ml-5 mt-4 w-50" />
                 </div>
                 <div >
 
-                    <button onClick={handleSendComment} className="ml-5 mt-2 btn btn-outline-success">add comment</button>
+                    <button onClick={handleSendComment} className="ml-5 mt-2 btn btn-outline-success">
+                        add comment
+                    </button>
                 </div>
             </form>
             {/* <h1>{data.item.Name}</h1> */}
