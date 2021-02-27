@@ -56,6 +56,8 @@ function Item() {
     }
 
     const handleSendComment = () => {
+        // let ai = appId;
+        // console.log(ai);
         axios({
             "method": "POST",
             "url": "http://localhost:8080/app/comments",
@@ -64,8 +66,9 @@ function Item() {
             },
 
             data: {
-                "sender": 312,
-                "app": match.params ? match.params.id : "",
+
+                "sender": 1,
+                "app": parseInt(appId, 10),
                 "content": addComment
             }
         })
