@@ -1,7 +1,5 @@
 .Container {
-    width: 95vw !important;
-    margin-left: 0px;
-    margin-right: 0px;
+    width: 100% !important;
 }
 
 .Container .Row {
