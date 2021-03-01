@@ -15,10 +15,16 @@
     color: rgb(180, 137, 93) !important;
 }
 
-.uploadItem {
+/* .uploadItem {
     width: 100% !important;
-    display: flex;
-}
+} */
+/* 
+.alaki {
+    color: rgb(129, 173, 135) !important;
+    list-style: none;
+    box-shadow: none;
+    text-decoration: none;
+} */
 
 /* .navUl {
     width: 100% !important;

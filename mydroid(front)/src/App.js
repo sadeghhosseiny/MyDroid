@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './Component/NavBar';
 import HomePage from './Component/HomePage';
 import Item from './Component/Item';
+import UploadApp from './Component/UploadApp';
 
 
 function App() {
@@ -30,6 +31,10 @@ function App() {
           <Route exact path="/item/:id">
             <NavBar />
             <Item />
+          </Route>
+          <Route path="/UploadApp">
+            <NavBar />
+            <UploadApp />
           </Route>
         </Switch>
       </div>

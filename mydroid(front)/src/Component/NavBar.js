@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styles from './NavBar.module.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function NavBar() {
 
-    const [activePage, setActivePage] = useState("HomePage");
+    const [activePage, setActivePage] = useState("");
 
     return (
         <nav className="navbar navbar-expand navbar-dark bg-dark py-3 justify-content-between">
@@ -16,30 +16,31 @@ function NavBar() {
             </button> */}
             <div className={`mr-auto d-flex ${styles.itemsNavbar}`} id="navbarNav">
                 <ul className={`navbar-nav ${styles.navUl} `}>
-                    <Link to="/HomePage" >
+                    <NavLink to="/HomePage" >
                         <li className="nav-item " onClick={() => setActivePage("HomePage")}>
                             <a className={`nav-link ${activePage == "HomePage" && styles.activeLink}`} >Home</a>
                         </li>
-                    </Link>
-                    <Link to="#" >
+                    </NavLink>
+                    <NavLink to="#" >
 
                         <li className="nav-item" onClick={() => setActivePage("Games")}>
                             <a className={`nav-link ${activePage == "Games" && styles.activeLink}`} >Games</a>
                         </li>
-                    </Link>
-                    <Link to="#" >
+                    </NavLink>
+                    <NavLink to="#" >
 
                         <li className="nav-item" onClick={() => setActivePage("Apps")}>
                             <a className={`nav-link ${activePage == "Apps" && styles.activeLink}`} >Apps</a>
                         </li>
-                    </Link>
+                    </NavLink>
                 </ul>
                 <span className="ml-auto">
 
-                    <Link to="#">
-                        <li className={`nav-item  ${styles.uploadItem}`} onClick={() => setActivePage("UploadApp")}>
-                            <a className={`nav-link ${styles.alaki} ${activePage == "UploadApp" && styles.activeLink}`}>+ Upload App</a>
-                        </li>
+                    <Link to="/UploadApp">
+                        <p onClick={() => setActivePage("UploadApp")}
+                            className={`mt-1 mb-0 p-0 text-info ${activePage == "UploadApp" && styles.activeLink}`}>
+                            Upload App
+                        </p>
                     </Link>
                 </span>
             </div>
