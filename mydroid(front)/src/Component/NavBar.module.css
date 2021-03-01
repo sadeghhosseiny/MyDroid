@@ -14,3 +14,16 @@
     font-size: 18px;
     color: rgb(180, 137, 93) !important;
 }
+
+.uploadItem {
+    width: 100% !important;
+    display: flex;
+}
+
+/* .navUl {
+    width: 100% !important;
+} */
+
+.itemsNavbar {
+    width: 100% !important;
+}

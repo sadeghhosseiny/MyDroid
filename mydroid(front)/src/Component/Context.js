@@ -52,7 +52,7 @@ export const ContextProvider = (props) => {
                 const resLatestGames = res.data.data;
                 setLatestGames(resLatestGames);
             })
-    })
+    }, [])
 
     return (
         <MyContext.Provider value={{
