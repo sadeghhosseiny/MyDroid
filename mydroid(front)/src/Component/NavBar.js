@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './NavBar.module.css';
 import { Link } from 'react-router-dom';
 
 function NavBar() {
+
+    const [activePage, setActivePage] = useState("HomePage");
 
     return (
         <nav className="navbar navbar-expand navbar-dark bg-dark py-3">
@@ -15,16 +17,22 @@ function NavBar() {
             <div className={`${styles.itemsNavbar}`} id="navbarNav">
                 <ul className="navbar-nav">
                     <Link to="/HomePage" >
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Home</a>
+                        <li className="nav-item " onClick={() => setActivePage("HomePage")}>
+                            <a className={`nav-link ${activePage == "HomePage" && styles.activeLink}`} >Home</a>
                         </li>
                     </Link>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Games</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Apps</a>
-                    </li>
+                    <Link to="#" >
+
+                        <li className="nav-item" onClick={() => setActivePage("Games")}>
+                            <a className={`nav-link ${activePage == "Games" && styles.activeLink}`} >Games</a>
+                        </li>
+                    </Link>
+                    <Link to="#" >
+
+                        <li className="nav-item" onClick={() => setActivePage("Apps")}>
+                            <a className={`nav-link ${activePage == "Apps" && styles.activeLink}`} >Apps</a>
+                        </li>
+                    </Link>
                 </ul>
             </div>
         </nav>
