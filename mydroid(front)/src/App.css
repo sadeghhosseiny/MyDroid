@@ -1,3 +1,4 @@
 .appClass {
     height: 100vh;
+    min-width: 720px;
 }

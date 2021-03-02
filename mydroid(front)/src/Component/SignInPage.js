@@ -71,7 +71,7 @@ function SignInPage() {
 
 
     useEffect(() => {
-        handleSignIn
+        handleSignIn;
     }, [])
 
     // const handleClick = () => {
@@ -123,7 +123,7 @@ function SignInPage() {
                         {/* <Link to="/HomePage"> */}
                         {handleSignIn && !isValid && <p className="text-danger">{text}</p>}
                         <button disabled={!validateForm()}
-                            onClick={handleSignIn}
+                            onClick={handleSignIn ? handleSignIn : ""}
                             className="btn btn-outline-info text-capitalize py-3 px-5">
                             sign in
                         </button>

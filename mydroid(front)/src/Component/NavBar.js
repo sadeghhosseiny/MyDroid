@@ -7,7 +7,7 @@ function NavBar() {
     const [activePage, setActivePage] = useState("");
 
     return (
-        <nav className="navbar navbar-expand navbar-dark bg-dark py-3 justify-content-between">
+        <nav className={`navbar navbar-expand navbar-dark bg-dark py-3 justify-content-between ${styles.NavBar}`}>
             <a className={`${styles.navbarBrand} navbar-brand font-weight-bold`}>
                 MD
             </a>
@@ -39,7 +39,7 @@ function NavBar() {
                     <Link to="/UploadApp">
                         <p onClick={() => setActivePage("UploadApp")}
                             className={`mt-1 mb-0 p-0 text-info ${activePage == "UploadApp" && styles.activeLink}`}>
-                            Upload App
+                            + Upload App
                         </p>
                     </Link>
                 </span>

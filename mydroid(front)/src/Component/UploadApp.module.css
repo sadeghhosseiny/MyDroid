@@ -1,0 +1,10 @@
+.inputID {
+    width: 26%;
+}
+
+.browseImage {
+    padding: 8px;
+    border-radius: 8px !important;
+    color: rgb(200, 207, 185);
+    background-color: rgb(109, 76, 102);
+}

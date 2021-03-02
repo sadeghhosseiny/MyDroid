@@ -15,6 +15,10 @@
     color: rgb(180, 137, 93) !important;
 }
 
+.NavBar {
+    min-width: 720px;
+}
+
 /* .uploadItem {
     width: 100% !important;
 } */

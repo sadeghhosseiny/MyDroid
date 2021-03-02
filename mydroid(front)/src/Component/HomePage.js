@@ -9,8 +9,11 @@ function HomePage() {
     //const [data, setData] = useState();
 
     const { bestApps } = useContext(MyContext);
+
     const { bestGames } = useContext(MyContext);
+
     const { latestApps } = useContext(MyContext);
+
     const { latestGames } = useContext(MyContext);
 
     // const getApps = () => {
@@ -38,7 +41,7 @@ function HomePage() {
 
             <div className={`${styles.MainDiv}`}>
 
-                <h1 className="text-capitalize m-3 pl-4 ml-5">the best apps</h1>
+                <h1 className={`text-capitalize m-3 pl-4 ml-5 ${styles.categoryTitle}`}>the best apps</h1>
 
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
@@ -55,7 +58,7 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className="text-capitalize m-3 pl-4 ml-5">the best games</h1>
+                <h1 className={`text-capitalize m-3 pl-4 ml-5 ${styles.categoryTitle}`}>the best games</h1>
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
@@ -64,7 +67,7 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className="text-capitalize m-3 pl-4 ml-5">the latest apps</h1>
+                <h1 className={`text-capitalize m-3 pl-4 ml-5 ${styles.categoryTitle}`}>the latest apps</h1>
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
@@ -73,7 +76,7 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className="text-capitalize m-3 pl-4 ml-5">the latest games</h1>
+                <h1 className={`text-capitalize m-3 pl-4 ml-5 ${styles.categoryTitle}`}>the latest games</h1>
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 

@@ -5,3 +5,11 @@
 .Container .Row {
     width: 100% !important;
 }
+
+.MainDiv {
+    min-width: 720px;
+}
+
+.categoryTitle {
+    font-family: 'Cinzel', serif;
+}
