@@ -9,6 +9,7 @@ function UploadApp() {
     const [publisherId, setPublisherId] = useState("");
     const [addDescription, setAddDescription] = useState("");
     const [category, setCategory] = useState([]);
+    const [image, setImage] = useState();
     //const [cat, setCat] = useState([]);
 
     const getCategory = () => {
@@ -37,7 +38,7 @@ function UploadApp() {
                 "description": addDescription,
                 "publisher_id": 2,
                 "category_id": 3,
-                "image": await uploadImage(),
+                "image": image,
             }
         })
             .then(res => {
@@ -53,8 +54,9 @@ function UploadApp() {
         console.log(e.target.files[0]);
         const file = e.target.files[0];
         const base64Image = await convertToBase64(file);
-        return base64Image;
-        //console.log(base64Image);
+        setImage(base64Image);
+        //return base64Image;
+        console.log(base64Image);
     }
 
     const convertToBase64 = (file) => {
