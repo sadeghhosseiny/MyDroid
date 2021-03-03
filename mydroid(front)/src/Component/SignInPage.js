@@ -53,7 +53,7 @@ function SignInPage() {
         })
             .then(res => {
                 console.log(res.data.result);
-                if (res.data.result === "success") {
+                if (res.data.result ? res.data.result === "success" : "") {
                     setValid(true);
                     history.push("/HomePage");
                 }
