@@ -27,6 +27,8 @@ function UploadApp() {
     }, [])
 
     const sendApp = () => {
+        let b64image = image.substr(image.indexOf(',') + 1)
+        console.log("fuck " + b64image)
         axios({
             "method": "POST",
             "url": "http://localhost:8080/app/upload",
@@ -38,7 +40,7 @@ function UploadApp() {
                 "description": addDescription,
                 "publisher_id": 2,
                 "category_id": 3,
-                "image": image,
+                "image": b64image,
             }
         })
             .then(res => {
