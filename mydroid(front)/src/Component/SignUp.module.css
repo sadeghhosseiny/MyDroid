@@ -1,13 +1,9 @@
 .mainContainer {
     display: grid;
     align-content: center;
-    height: 100%;
     background: linear-gradient(#c0b7b7, #5b5b5f);
+    height: 100vh;
 }
-
-/* body {
-
-} */
 
 :focus {
     outline: none;
@@ -42,11 +38,11 @@
 }
 
 .warningIcon {
-  color: red;
-  font-size: 1.6rem;
-  position: absolute;
-  top: 4px;
-  right: 20px;
+    color: red;
+    font-size: 1.6rem;
+    position: absolute;
+    top: 4px;
+    right: 20px;
 }
 
 .container {

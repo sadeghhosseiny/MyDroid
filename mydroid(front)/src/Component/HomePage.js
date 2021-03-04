@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import Apps from './Apps';
 import { MyContext } from './Context';
 import styles from './HomePage.module.css';
@@ -6,7 +7,6 @@ import styles from './HomePage.module.css';
 // , { useEffect, useState }
 //import axios from 'axios';
 function HomePage() {
-    //const [data, setData] = useState();
 
     const { bestApps } = useContext(MyContext);
 
@@ -41,7 +41,7 @@ function HomePage() {
 
             <div className={`${styles.MainDiv}`}>
 
-                <h1 className={`text-capitalize m-3 pl-4 ml-5 ${styles.categoryTitle}`}>the best apps</h1>
+                <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the best apps</h1>
 
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
@@ -58,7 +58,7 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className={`text-capitalize m-3 pl-4 ml-5 ${styles.categoryTitle}`}>the best games</h1>
+                <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the best games</h1>
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
@@ -67,7 +67,7 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className={`text-capitalize m-3 pl-4 ml-5 ${styles.categoryTitle}`}>the latest apps</h1>
+                <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the latest apps</h1>
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
@@ -76,7 +76,7 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className={`text-capitalize m-3 pl-4 ml-5 ${styles.categoryTitle}`}>the latest games</h1>
+                <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the latest games</h1>
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 

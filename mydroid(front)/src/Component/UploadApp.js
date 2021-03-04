@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styles from './UploadApp.module.css';
 import axios from 'axios';
-import { data } from 'jquery';
 
 function UploadApp() {
 
+    const userId = localStorage.getItem("userId");
     const [appName, setAppName] = useState("");
-    const [publisherId, setPublisherId] = useState("");
+    //const [publisherId, setPublisherId] = useState("");
     const [addDescription, setAddDescription] = useState("");
+    //const [chooseCategory, setChooseCategory] = useState();
     const [category, setCategory] = useState([]);
     const [image, setImage] = useState();
+    const [categoryID, setCategoryID] = useState();
     //const [cat, setCat] = useState([]);
 
     const getCategory = () => {
@@ -26,9 +28,22 @@ function UploadApp() {
         getCategory();
     }, [])
 
+    const chooseCategory = (e) => {
+
+        category.forEach(item => {
+            if (e.target.value === item.Name) {
+                setCategoryID(item.ID)
+            }
+        })
+    }
+
+    // useEffect(() => {
+    //     findID();
+    // }, [])
+
     const sendApp = () => {
-        let b64image = image.substr(image.indexOf(',') + 1)
-        console.log("fuck " + b64image)
+        let b64image = image.substr(image.indexOf(',') + 1);
+
         axios({
             "method": "POST",
             "url": "http://localhost:8080/app/upload",
@@ -39,7 +54,7 @@ function UploadApp() {
                 "name": appName,
                 "description": addDescription,
                 "publisher_id": 2,
-                "category_id": 3,
+                "category_id": categoryID,
                 "image": b64image,
             }
         })
@@ -82,7 +97,7 @@ function UploadApp() {
     return (
         <React.Fragment>
             <form onSubmit={handleSubmit}>
-
+                {console.log(userId)}
                 <form>
                     <div className="form-group d-flex justify-content-center mt-5">
                         <label className="mx-2 pt-1" for="AppName">App name</label>
@@ -91,13 +106,13 @@ function UploadApp() {
                     </div>
                 </form>
                 <br />
-                <form>
+                {/* <form>
                     <div className="form-group d-flex justify-content-center mt-2 ml-5">
                         <label className="mx-2 pt-1" for="ID">ID</label>
                         <input type="text" className={`form-control ${styles.inputID}`} id="ID" placeholder="ID..."
                             onChange={(e) => setPublisherId(e.target.value)} />
                     </div>
-                </form>
+                </form> */}
                 <br />
                 <form>
                     <div className="form-group d-flex justify-content-center mt-2 ml-3 mb-4">
@@ -118,12 +133,13 @@ function UploadApp() {
 
                 <div className="form-group d-flex justify-content-center mt-5">
                     <label for="categoryBox" className="pt-1">Select a category</label>
-                    <select id="categoryBox" className="form-control w-25 ml-3" data-role="select-dropdown" data-profile="minimal">
+                    <select id="categoryBox" className="form-control w-25 ml-3"
+                        data-role="select-dropdown" data-profile="minimal"
+                        onChange={chooseCategory} >
                         <option value="" disabled selected>Choose your category</option>
-                        {category.map(ctg => <option>{ctg.Name}</option>)}
+                        {category.map((ctg, i) => <option key={"cat" + i}>{ctg.Name}</option>)}
                     </select>
                 </div>
-
                 <div className="text-center mt-5 ml-5">
 
                     <button className="btn btn-outline-secondary px-4 py-2"

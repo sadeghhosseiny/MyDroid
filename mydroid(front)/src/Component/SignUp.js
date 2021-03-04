@@ -47,6 +47,7 @@ function SignUp() {
         event.preventDefault();
     }
     return (
+        // <div classNames={`${styles.Div}`}>
 
         <div className={`${styles.mainContainer}`}>
             <h1 className="text-center font-weight-bold">MyDroid</h1>
@@ -59,7 +60,7 @@ function SignUp() {
                             onChange={(e) => setUsername(e.target.value)} />
                         {/* {isClicked ? username.length == 0 ? (
                             <span className={`${styles.warningIcon}`}>
-                                !
+                            !
                             </span>
                         ) : '' : ''} */}
                         <span className={`${styles.border}`} />
@@ -81,6 +82,7 @@ function SignUp() {
                 </form>
             </div>
         </div>
+        // </div>
     )
 
 }

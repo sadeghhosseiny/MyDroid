@@ -1,7 +1,10 @@
 .mainContainer {
     display: grid;
     align-content: center;
-    height: 100%;
+    height: 100vh !important;
+}
+
+.mainDiv {
     background-color: rgb(184, 182, 172);
 }
 

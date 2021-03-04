@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SignInPage.module.css';
 import axios from 'axios';
-import { Link, Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import userId from '../helper/userId';
+
+
 
 function SignInPage() {
     const [username, setUsername] = useState("");
@@ -54,8 +57,14 @@ function SignInPage() {
             .then(res => {
                 console.log(res.data.result);
                 if (res.data.result ? res.data.result === "success" : "") {
+                    //console.log(res.data.message.user_id);
+                    //console.log(res.data.message.user_id);
+                    let USER_ID = res.data.message.user_id;
+
+                    localStorage.setItem("userId", USER_ID);
                     setValid(true);
-                    history.push("/HomePage");
+                    history.push(`/HomePage`);
+
                 }
                 else {
                     setText("username or password does not match");
@@ -102,34 +111,35 @@ function SignInPage() {
     // }
 
     return (
-        // <div>
-        <div className={`${styles.mainContainer}`}>
-            <h1 className="text-center font-weight-bold">MyDroid</h1>
+        <div className={`${styles.mainDiv}`}>
+            <div className={`${styles.mainContainer}`}>
+                <h1 className="text-center font-weight-bold">MyDroid</h1>
 
-            <div className={`container ${styles.container} mt-3`}>
-                <form onSubmit={handleSubmit}>
+                <div className={`container ${styles.container} mt-3`}>
+                    <form onSubmit={handleSubmit}>
 
-                    <div className={`${styles.content} my-5 mx-auto`}>
-                        <input className={`input ${styles.input}`} type="text" placeholder="Username"
-                            onChange={(e) => setUsername(e.target.value)} />
-                        <span className={`${styles.border}`}></span>
-                    </div>
-                    <div className={`${styles.content} my-5 mx-auto`}>
-                        <input className={`input ${styles.input}`} type="text" placeholder="Password"
-                            onChange={(e) => setPassword(e.target.value)} />
-                        <span className={`${styles.border}`}></span>
-                    </div>
-                    <div className="text-center mb-3">
-                        {/* <Link to="/HomePage"> */}
-                        {handleSignIn && !isValid && <p className="text-danger">{text}</p>}
-                        <button disabled={!validateForm()}
-                            onClick={handleSignIn ? handleSignIn : ""}
-                            className="btn btn-outline-info text-capitalize py-3 px-5">
-                            sign in
+                        <div className={`${styles.content} my-5 mx-auto`}>
+                            <input className={`input ${styles.input}`} type="text" placeholder="Username"
+                                onChange={(e) => setUsername(e.target.value)} />
+                            <span className={`${styles.border}`}></span>
+                        </div>
+                        <div className={`${styles.content} my-5 mx-auto`}>
+                            <input className={`input ${styles.input}`} type="text" placeholder="Password"
+                                onChange={(e) => setPassword(e.target.value)} />
+                            <span className={`${styles.border}`}></span>
+                        </div>
+                        <div className="text-center mb-3">
+                            {/* <Link to="/HomePage"> */}
+                            {handleSignIn && !isValid && <p className="text-danger">{text}</p>}
+                            <button disabled={!validateForm()}
+                                onClick={handleSignIn ? handleSignIn : ""}
+                                className="btn btn-outline-info text-capitalize py-3 px-5">
+                                sign in
                         </button>
-                        {/* </Link> */}
-                    </div>
-                </form>
+                            {/* </Link> */}
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     )
