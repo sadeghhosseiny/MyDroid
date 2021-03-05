@@ -2,7 +2,7 @@
     display: grid;
     align-content: center;
     background: linear-gradient(#c0b7b7, #5b5b5f);
-    height: 100vh;
+    height: 100%;
 }
 
 :focus {

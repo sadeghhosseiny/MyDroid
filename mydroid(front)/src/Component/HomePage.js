@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
 import Apps from './Apps';
 import { MyContext } from './Context';
 import styles from './HomePage.module.css';
@@ -38,7 +37,8 @@ function HomePage() {
     return (
 
         <React.Fragment>
-
+            {console.log(window.location.href)}
+            {console.log(window.location.pathname)}
             <div className={`${styles.MainDiv}`}>
 
                 <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the best apps</h1>

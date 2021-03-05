@@ -10,7 +10,7 @@ function UploadApp() {
     const [addDescription, setAddDescription] = useState("");
     //const [chooseCategory, setChooseCategory] = useState();
     const [category, setCategory] = useState([]);
-    const [image, setImage] = useState();
+    const [image, setImage] = useState("it's empty");
     const [categoryID, setCategoryID] = useState();
     //const [cat, setCat] = useState([]);
 
@@ -53,13 +53,19 @@ function UploadApp() {
             data: {
                 "name": appName,
                 "description": addDescription,
-                "publisher_id": 2,
+                "publisher_id": parseInt(userId, 10),
                 "category_id": categoryID,
                 "image": b64image,
             }
         })
             .then(res => {
+                if ("image" === null) {
+                    console.log("fuuuuuuuuuuuuuuuck");
+                }
                 console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
             })
     }
 

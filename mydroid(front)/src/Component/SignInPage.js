@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './SignInPage.module.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import userId from '../helper/userId';
-
+import { userContext } from './Apps'
 
 
 function SignInPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
+    // const userID = useContext(userContext);
     const [text, setText] = useState("");
     let history = useHistory();
     const [isValid, setValid] = useState(false);
@@ -37,7 +36,6 @@ function SignInPage() {
     // React.useEffect(() => {
     //     fetchData()
     // }, [fetchData])
-
 
     const handleSignIn = () => {
         axios({

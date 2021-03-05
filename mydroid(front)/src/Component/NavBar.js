@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './NavBar.module.css';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
 
@@ -16,23 +16,23 @@ function NavBar() {
             </button> */}
             <div className={`mr-auto d-flex ${styles.itemsNavbar}`} id="navbarNav">
                 <ul className={`navbar-nav ${styles.navUl} `}>
-                    <NavLink to="/HomePage" >
+                    <Link to="/HomePage" >
                         <li className="nav-item " onClick={() => setActivePage("HomePage")}>
-                            <a className={`nav-link ${activePage == "HomePage" && styles.activeLink}`} >Home</a>
+                            <a className={`nav-link ${window.location.pathname == "/HomePage" && styles.activeLink}`} >Home</a>
                         </li>
-                    </NavLink>
-                    <NavLink to="#" >
+                    </Link>
+                    <Link to="#" >
 
                         <li className="nav-item" onClick={() => setActivePage("Games")}>
                             <a className={`nav-link ${activePage == "Games" && styles.activeLink}`} >Games</a>
                         </li>
-                    </NavLink>
-                    <NavLink to="#" >
+                    </Link>
+                    <Link to="#" >
 
                         <li className="nav-item" onClick={() => setActivePage("Apps")}>
                             <a className={`nav-link ${activePage == "Apps" && styles.activeLink}`} >Apps</a>
                         </li>
-                    </NavLink>
+                    </Link>
                 </ul>
                 <span className="ml-auto">
 

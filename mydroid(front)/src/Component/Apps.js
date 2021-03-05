@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Apps.module.css';
 import { Link } from 'react-router-dom';
 import Item from './Item';
@@ -7,11 +7,13 @@ import Item from './Item';
 const baseHost = "http://localhost:8080";
 
 
+//export const userContext = React.createContext();
 function Apps({ bestDataApp, bestDataGame, latestApp, latestGame }) {
+    //const userID = useState(null);
 
     return (
         <React.Fragment>
-
+            {/* <userContext.Provider value={userID}> */}
             {bestDataApp && <div className={`col-4 col-sm-4 col-md-2 my-2 ${styles.Apps}`}>
                 <div className={`${styles.cardContainer}`}>
 
@@ -104,7 +106,7 @@ function Apps({ bestDataApp, bestDataGame, latestApp, latestGame }) {
                     </div>
                 </div>
             </div>}
-
+            {/* </userContext.Provider> */}
         </React.Fragment>
 
     )

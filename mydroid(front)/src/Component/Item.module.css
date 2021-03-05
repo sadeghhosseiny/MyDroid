@@ -15,7 +15,8 @@
 }
 
 .mainDiv {
-    min-width: 1000px;
+    height: 100vh !important;
+    /* min-width: 1000px; */
 }
 
 .appPublisher {
@@ -34,10 +35,19 @@
     list-style: none;
     border-radius: 5px;
     height: auto;
-    width: 1247px;
-    background-color: rgb(230, 220, 220);
+    width: 66%;
+    background-color: rgb(128, 126, 114);
+    color: rgb(0, 0, 0);
 }
 
 .line {
-    width: 1247px;
+    width: 66%;
+}
+
+.userComment {
+    border-radius: 5px;
+    height: auto;
+    width: 66%;
+    background-color: rgb(109, 104, 75);
+    color: rgb(0, 0, 0);
 }
