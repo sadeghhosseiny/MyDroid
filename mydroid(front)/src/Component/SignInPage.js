@@ -4,11 +4,10 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { userContext } from './Apps'
 
-
 function SignInPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    // const userID = useContext(userContext);
+    //const [UserId, setUserId] = useState();
     const [text, setText] = useState("");
     let history = useHistory();
     const [isValid, setValid] = useState(false);
@@ -58,7 +57,7 @@ function SignInPage() {
                     //console.log(res.data.message.user_id);
                     //console.log(res.data.message.user_id);
                     let USER_ID = res.data.message.user_id;
-
+                    // setUserId(USER_ID);
                     localStorage.setItem("userId", USER_ID);
                     setValid(true);
                     history.push(`/HomePage`);
