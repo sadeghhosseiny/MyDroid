@@ -24,13 +24,13 @@ function NavBar() {
                     <Link to="#" >
 
                         <li className="nav-item" onClick={() => setActivePage("Games")}>
-                            <a className={`nav-link ${activePage == "Games" && styles.activeLink}`} >Games</a>
+                            <a className={`nav-link ${window.location.pathname == "/Games" && styles.activeLink}`} >Games</a>
                         </li>
                     </Link>
                     <Link to="#" >
 
                         <li className="nav-item" onClick={() => setActivePage("Apps")}>
-                            <a className={`nav-link ${activePage == "Apps" && styles.activeLink}`} >Apps</a>
+                            <a className={`nav-link ${window.location.pathname == "/Apps" && styles.activeLink}`} >Apps</a>
                         </li>
                     </Link>
                 </ul>
@@ -38,7 +38,7 @@ function NavBar() {
 
                     <Link to="/UploadApp">
                         <p onClick={() => setActivePage("UploadApp")}
-                            className={`mt-1 mb-0 p-0 text-info ${activePage == "UploadApp" && styles.activeLink}`}>
+                            className={`mt-1 mb-0 p-0 text-info ${window.location.pathname == "/UploadApp" && styles.activeLink}`}>
                             + Upload App
                         </p>
                     </Link>
