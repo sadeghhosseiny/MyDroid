@@ -43,7 +43,7 @@ function HomePage() {
 
                 <h1 className={`text-capitalize mt-3 ml-5 ${styles.categoryTitle}`}>the best apps</h1>
                 <hr className={`bg-info ml-5 mr-5 ${styles.BappsLine}`} />
-                <div className={`${styles.Container}`}>
+                <div className={`container mx-0 px-0 ${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
                         {console.log(bestApps)}

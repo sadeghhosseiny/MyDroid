@@ -1,9 +1,10 @@
 .Container {
-    width: 100% !important;
+    width: 90% !important;
+    margin-left: 40px !important;
 }
 
-.Container .Row {
-    width: 100% !important;
+.Row {
+    width: 100%;
 }
 
 .MainDiv {
