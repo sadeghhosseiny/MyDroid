@@ -41,8 +41,8 @@ function HomePage() {
             {console.log(window.location.pathname)}
             <div className={`${styles.MainDiv}`}>
 
-                <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the best apps</h1>
-
+                <h1 className={`text-capitalize mt-3 ml-5 ${styles.categoryTitle}`}>the best apps</h1>
+                <hr className={`bg-info ml-5 mr-5 ${styles.BappsLine}`} />
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
@@ -59,6 +59,7 @@ function HomePage() {
                 </div>
 
                 <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the best games</h1>
+                <hr className={`bg-info ml-5 mr-5 ${styles.BgamesLine}`} />
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
@@ -68,6 +69,7 @@ function HomePage() {
                 </div>
 
                 <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the latest apps</h1>
+                <hr className={`bg-info ml-5 mr-5 ${styles.LappsLine}`} />
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
@@ -77,6 +79,7 @@ function HomePage() {
                 </div>
 
                 <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the latest games</h1>
+                <hr className={`bg-info ml-5 mr-5 ${styles.LgamesLine}`} />
                 <div className={`${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 

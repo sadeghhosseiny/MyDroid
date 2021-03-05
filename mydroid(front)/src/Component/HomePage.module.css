@@ -13,3 +13,43 @@
 .categoryTitle {
     font-family: 'Cinzel', serif;
 }
+
+.BappsLine {
+    position: relative;
+    top: -15px;
+    width: 280px;
+    padding-top: 0px !important;
+    height: 3px;
+    border-radius: 10px;
+
+}
+
+.BgamesLine {
+    position: relative;
+    top: -15px;
+    width: 322px;
+    padding-top: 0px !important;
+    height: 3px;
+    border-radius: 10px;
+
+}
+
+.LappsLine {
+    position: relative;
+    top: -15px;
+    width: 327px;
+    padding-top: 0px !important;
+    height: 3px;
+    border-radius: 10px;
+
+}
+
+.LgamesLine {
+    position: relative;
+    top: -15px;
+    width: 368px;
+    padding-top: 0px !important;
+    height: 3px;
+    border-radius: 10px;
+
+}
