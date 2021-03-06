@@ -60,7 +60,7 @@ function SignInPage() {
                     // setUserId(USER_ID);
                     localStorage.setItem("userId", USER_ID);
                     setValid(true);
-                    history.push(`/HomePage`);
+                    history.push(`/`);
 
                 }
                 else {
@@ -126,7 +126,7 @@ function SignInPage() {
                             <span className={`${styles.border}`}></span>
                         </div>
                         <div className="text-center mb-3">
-                            {/* <Link to="/HomePage"> */}
+                            {/* <Link to="/" > */}
                             {handleSignIn && !isValid && <p className="text-danger">{text}</p>}
                             <button disabled={!validateForm()}
                                 onClick={handleSignIn ? handleSignIn : ""}
@@ -138,7 +138,7 @@ function SignInPage() {
                         <hr className="bg-dark" />
                         <p className="font-weight-bold text-center">
                             Not in mydroid yet ?
-                            <Link to="sign up">
+                            <Link to="/sign up">
                                 <nbsp /> Sign up
                             </Link>
 

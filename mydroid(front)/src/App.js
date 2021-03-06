@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle';
 import SignIN from './Component/SignInPage';
 import SignUP from './Component/SignUp';
-import { BrowserRouter as Router, Switch, Route, IndexRedirect, IndexRoute, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import NavBar from './Component/NavBar';
 import HomePage from './Component/HomePage';
 import Item from './Component/Item';
@@ -17,17 +17,15 @@ function App() {
 
       <div className="appClass">
         <Switch>
+          <Route exact path="/">
+            <NavBar />
+            <HomePage />
+          </Route>
           <Route path="/sign up">
             <SignUP />
           </Route>
           <Route path="/sign in" >
-            {/* <IndexRoute component={SignIN} /> */}
-            {/* <Redirect to="sign in" /> */}
             <SignIN />
-          </Route>
-          <Route exact path="/">
-            <NavBar />
-            <HomePage />
           </Route>
           <Route path="/item/:id">
             <NavBar />
@@ -37,8 +35,7 @@ function App() {
             <NavBar />
             <UploadApp />
           </Route>
-          <Route path="*" exact={true}>
-            <Redirect to="404" />
+          <Route>
             <NotFound />
           </Route>
         </Switch>

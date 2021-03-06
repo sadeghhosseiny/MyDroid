@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 function NavBar() {
 
-    const [activePage, setActivePage] = useState("");
+
     const UserId = localStorage.getItem("userId");
 
     const clearStorage = () => {
         localStorage.clear();
+        window.location.reload();
     }
 
     return (
@@ -22,19 +23,19 @@ function NavBar() {
             <div className={`mr-auto d-flex ${styles.itemsNavbar}`} id="navbarNav">
                 <ul className={`navbar-nav ml-4 ${styles.navUl} `}>
                     <Link to="/" >
-                        <li className={`nav-item ${styles.navItem}`} onClick={() => setActivePage("HomePage")}>
+                        <li className={`nav-item ${styles.navItem}`}>
                             <a className={`nav-link ${window.location.pathname == "/" && styles.activeLink}`} >Home</a>
                         </li>
                     </Link>
                     <Link to="#" >
 
-                        <li className={`nav-item ${styles.navItem}`} onClick={() => setActivePage("Games")}>
+                        <li className={`nav-item ${styles.navItem}`}>
                             <a className={`nav-link ${window.location.pathname == "/Games" && styles.activeLink}`} >Games</a>
                         </li>
                     </Link>
                     <Link to="#" >
 
-                        <li className={`nav-item ${styles.navItem}`} onClick={() => setActivePage("Apps")}>
+                        <li className={`nav-item ${styles.navItem}`} >
                             <a className={`nav-link ${window.location.pathname == "/Apps" && styles.activeLink}`} >Apps</a>
                         </li>
                     </Link>
@@ -42,25 +43,26 @@ function NavBar() {
 
                 {UserId && <span className="ml-auto">
 
-                    <Link to="/UploadApp">
-                        <p onClick={() => setActivePage("UploadApp")}
-                            className={`mt-1 mb-0 p-0 ${`nav-item ${styles.navItem2}`} ${window.location.pathname == "/UploadApp" && styles.activeLink}`}>
-                            + Upload App
-                        </p>
-                    </Link>
-                </span>}
-
-                {UserId && <span className="ml-auto">
-
                     <Link to="/">
-                        <p onClick={() => clearStorage()}
+                        <p onClick={clearStorage}
                             className={`mt-1 mb-0 p-0 nav-item ${styles.navItem2}`}>
                             Log out
                         </p>
                     </Link>
                 </span>}
 
-                <span className="ml-auto">
+                {UserId && <span className="ml-auto">
+
+                    <Link to="/UploadApp">
+                        <p
+                            className={`mt-1 mb-0 p-0 ${`nav-item ${styles.navItem2}`} 
+                            ${window.location.pathname == "/UploadApp" && styles.activeLink}`}>
+                            + Upload App
+                        </p>
+                    </Link>
+                </span>}
+
+                {!UserId && <span className="ml-auto">
 
                     <Link to="/sign in">
                         <p
@@ -68,7 +70,7 @@ function NavBar() {
                             Log in
                         </p>
                     </Link>
-                </span>
+                </span>}
 
             </div>
         </nav>
