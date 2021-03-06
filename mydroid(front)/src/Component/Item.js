@@ -147,7 +147,7 @@ function Item() {
                     </div>
                 </div>
 
-                <form id="frm" onSubmit={handleComment}>
+                {userId && <form id="frm" onSubmit={handleComment}>
                     <div>
 
                         <textarea type="text" placeholder="Add Your Comment"
@@ -166,7 +166,7 @@ function Item() {
          
                     </button>
                     </div>
-                </form>
+                </form>}
             </div>
         </div>
     )
