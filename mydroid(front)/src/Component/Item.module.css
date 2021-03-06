@@ -49,6 +49,12 @@
     border-radius: 5px;
     height: auto;
     width: 66%;
-    background-color: rgb(109, 104, 75);
+    /* background-color: rgb(109, 104, 75); */
     color: rgb(0, 0, 0);
+}
+
+.pCom {
+    padding-bottom: 8px !important;
+    background-color: rgb(126, 182, 149);
+    border-radius: 5px;
 }

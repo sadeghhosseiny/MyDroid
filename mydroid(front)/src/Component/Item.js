@@ -1,7 +1,8 @@
 import styles from './Item.module.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
+import { get } from 'jquery';
 
 
 function Item() {
@@ -12,9 +13,9 @@ function Item() {
     const baseUrl = "http://localhost:8080"
 
     const [item, setItem] = useState([])
-    const [comment, setComment] = useState()
-    const [addComment, setAddComment] = useState("")
-    const [getComment, setGetComment] = useState("");
+    const [comment, setComment] = useState([])
+    const [addComment, setAddComment] = useState()
+    const [getComment, setGetComment] = useState([]);
 
     useEffect(() => {
         fetchItem();
@@ -52,8 +53,14 @@ function Item() {
     // }
     const resetForm = () => {
         var event = document.getElementById("frm");
+        setAddComment("empty");
         event.reset();
+        // {console.log(getComment)}
 
+    }
+
+    const handleUserComment = () => {
+        setGetComment([...getComment, addComment])
     }
 
 
@@ -119,7 +126,8 @@ function Item() {
                     </div>
                     {getComment && <div className={`ml-5 my-2 ${styles.userComment}`}>
                         {/* <p>Your comment</p> */}
-                        <p className={`py-2 my-2 px-2 `}>{getComment}</p>
+                        {getComment.map((gCom, i)=><p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>{gCom}</p>)}
+                        
                     </div>}
 
                 </div>
@@ -135,14 +143,19 @@ function Item() {
 
                         <button onClick={() => {
                             handleSendComment();
-                            setGetComment(addComment);
+                            handleUserComment();
                             resetForm();
                         }} className="ml-5 mt-2 btn btn-outline-success">
                             add comment
+         
                     </button>
-
+                    {/* <div>{getComment.map(entry =>
+          <div>{entry}</div>
+        )}
+        </div> */}
                     </div>
                 </form>
+
                 {/* <h1>{data.item.Name}</h1> */}
                 {/* <p>{props.ID}</p> */}
             </div>
