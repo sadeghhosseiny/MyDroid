@@ -2,7 +2,6 @@ import styles from './Item.module.css';
 import React, { useEffect, useState, useCallback } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
-import { get } from 'jquery';
 
 
 function Item() {
@@ -14,7 +13,7 @@ function Item() {
 
     const [item, setItem] = useState([])
     const [comment, setComment] = useState([])
-    const [addComment, setAddComment] = useState()
+    const [addComment, setAddComment] = useState("")
     const [getComment, setGetComment] = useState([]);
 
     useEffect(() => {
@@ -53,7 +52,7 @@ function Item() {
     // }
     const resetForm = () => {
         var event = document.getElementById("frm");
-        setAddComment("empty");
+        //setAddComment("empty");
         event.reset();
         // {console.log(getComment)}
 
@@ -95,6 +94,9 @@ function Item() {
             .then(res => {
                 console.log(res);
             })
+            .catch(err => {
+                console.log(err);
+            })
             // .then (res => {
             //     console.log(showComments());
             // })
@@ -103,6 +105,10 @@ function Item() {
     // const GC = () => {
     //     showComments();
     // }
+
+    const checkTextArea = () => {
+        return addComment.length > 0;
+    }
 
     useEffect(() => {
         handleSendComment;
@@ -132,14 +138,13 @@ function Item() {
                         {comment ? comment.map((com, i) => <li key={"com" + i} className={`px-2 my-2 py-2 ${styles.lCom}`}>
                             {com.Content}
                             </li>)
-                             : "commentpalce"}
+                             : ""}
                     </div>
-                    {getComment && <div className={`ml-5 my-2 ${styles.userComment}`}>
+                    <div className={`ml-5 my-2 ${styles.userComment}`}>
                        
-                        {getComment.map((gCom, i)=><p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>{gCom}</p>)}
+                        {getComment ? getComment.map((gCom, i)=><p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>{gCom}</p>):""}
                         
-                    </div>} 
-
+                    </div>
                 </div>
 
                 <form id="frm" onSubmit={handleComment}>
@@ -156,7 +161,7 @@ function Item() {
                             handleUserComment();
                             resetForm();
                             
-                        }} className="ml-5 mt-2 btn btn-outline-success">
+                        }} className="ml-5 mt-2 btn btn-outline-success" disabled={!checkTextArea()}>
                             add comment
          
                     </button>

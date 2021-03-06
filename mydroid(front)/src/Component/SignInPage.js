@@ -135,7 +135,7 @@ function SignInPage() {
                         </button>
                             {/* </Link> */}
                         </div>
-                        <hr />
+                        <hr className="bg-dark" />
                         <p className="font-weight-bold text-center">
                             Not in mydroid yet ?
                             <Link to="sign up">
