@@ -37,8 +37,14 @@
     border-radius: 5px;
     height: auto;
     width: 66%;
-    background-color: rgb(128, 126, 114);
+    /* background-color: rgb(128, 126, 114); */
     color: rgb(0, 0, 0);
+}
+
+.lCom {
+    padding-bottom: 8px !important;
+    background-color: rgb(128, 126, 114);
+    border-radius: 5px;
 }
 
 .line {

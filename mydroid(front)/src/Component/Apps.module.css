@@ -1,7 +1,7 @@
 .image {
     width: 100%;
     height: 100%;
-    background-color: coral;
+    background-color: rgb(78, 73, 73);
 
 }
 
@@ -33,6 +33,8 @@
     font-family: 'Comfortaa', cursive;
     letter-spacing: 1px;
     background-color: rgb(171, 218, 218);
+    width: 110px;
+    height: auto;
 }
 
 .over {
@@ -51,21 +53,3 @@
     background: rgb(61, 58, 59) !important;
     opacity: .5;
 }
-
-
-/* @media (max-width:1000px) {
-    .cardContainer {
-        width: 6vw;
-        height: 6vw;
-    }
-
-    .Card {
-        width: 6vw;
-        height: 6vw;
-    }
-
-    .image {
-        width: 6vw;
-        height: 6vw;
-    }
-} */

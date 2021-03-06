@@ -95,7 +95,14 @@ function Item() {
             .then(res => {
                 console.log(res);
             })
+            // .then (res => {
+            //     console.log(showComments());
+            // })
     }
+
+    // const GC = () => {
+    //     showComments();
+    // }
 
     useEffect(() => {
         handleSendComment;
@@ -103,7 +110,7 @@ function Item() {
 
     return (
         <div className={`${styles.Div}`}>
-
+            {/* {console.log(GC())} */}
             <div className={`${styles.mainDiv}`}>
                 {/* <h1>this is item</h1> */}
                 <div className={`${styles.appContainer}`}>
@@ -122,13 +129,16 @@ function Item() {
                 </div>
                 <div>
                     <div className={`ml-5 my-2 ${styles.commentDiv}`}>
-                        {comment ? comment.map((com, i) => <li key={"com" + i} className="px-2 py-2">{com.Content}</li>) : "commentpalce"}
+                        {comment ? comment.map((com, i) => <li key={"com" + i} className={`px-2 my-2 py-2 ${styles.lCom}`}>
+                            {com.Content}
+                            </li>)
+                             : "commentpalce"}
                     </div>
                     {getComment && <div className={`ml-5 my-2 ${styles.userComment}`}>
-                        {/* <p>Your comment</p> */}
+                       
                         {getComment.map((gCom, i)=><p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>{gCom}</p>)}
                         
-                    </div>}
+                    </div>} 
 
                 </div>
 
@@ -145,19 +155,13 @@ function Item() {
                             handleSendComment();
                             handleUserComment();
                             resetForm();
+                            
                         }} className="ml-5 mt-2 btn btn-outline-success">
                             add comment
          
                     </button>
-                    {/* <div>{getComment.map(entry =>
-          <div>{entry}</div>
-        )}
-        </div> */}
                     </div>
                 </form>
-
-                {/* <h1>{data.item.Name}</h1> */}
-                {/* <p>{props.ID}</p> */}
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styles from './SignInPage.module.css';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { userContext } from './Apps'
 
 function SignInPage() {
@@ -131,10 +131,18 @@ function SignInPage() {
                             <button disabled={!validateForm()}
                                 onClick={handleSignIn ? handleSignIn : ""}
                                 className="btn btn-outline-info text-capitalize py-3 px-5">
-                                sign in
+                                log in
                         </button>
                             {/* </Link> */}
                         </div>
+                        <hr />
+                        <p className="font-weight-bold text-center">
+                            Not in mydroid yet ?
+                            <Link to="sign up">
+                                <nbsp /> Sign up
+                            </Link>
+
+                        </p>
                     </form>
                 </div>
             </div>

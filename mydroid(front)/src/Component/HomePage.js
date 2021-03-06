@@ -49,11 +49,7 @@ function HomePage() {
                         {console.log(bestApps)}
 
                         {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
-                        {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
-                        {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
-                        {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
-                        {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
-                        {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
+
                     </div>
                     <br />
                 </div>
