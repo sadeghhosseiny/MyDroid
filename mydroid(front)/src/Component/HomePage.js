@@ -54,9 +54,9 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the best games</h1>
+                <h1 className={`text-capitalize mt-3 ml-5 ${styles.categoryTitle}`}>the best games</h1>
                 <hr className={`bg-info ml-5 mr-5 ${styles.BgamesLine}`} />
-                <div className={`${styles.Container}`}>
+                <div className={`container mx-0 px-0 ${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
                         {bestGames ? bestGames.map(game => <Apps key={game.ID} bestDataGame={game} />) : " LOADING"}
@@ -64,9 +64,9 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the latest apps</h1>
+                <h1 className={`text-capitalize mt-3 ml-5 ${styles.categoryTitle}`}>the latest apps</h1>
                 <hr className={`bg-info ml-5 mr-5 ${styles.LappsLine}`} />
-                <div className={`${styles.Container}`}>
+                <div className={`container mx-0 px-0 ${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
                         {latestApps ? latestApps.map(lapp => <Apps key={lapp.ID} latestApp={lapp} />) : " LOADING"}
@@ -74,9 +74,9 @@ function HomePage() {
                     <br />
                 </div>
 
-                <h1 className={`text-capitalize m-3 ml-5 ${styles.categoryTitle}`}>the latest games</h1>
+                <h1 className={`text-capitalize mt-3 ml-5 ${styles.categoryTitle}`}>the latest games</h1>
                 <hr className={`bg-info ml-5 mr-5 ${styles.LgamesLine}`} />
-                <div className={`${styles.Container}`}>
+                <div className={`container mx-0 px-0 ${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
                         {latestGames ? latestGames.map(lgame => <Apps key={lgame.ID} latestGame={lgame} />) : " LOADING"}

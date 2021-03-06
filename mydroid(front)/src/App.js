@@ -9,6 +9,8 @@ import HomePage from './Component/HomePage';
 import Item from './Component/Item';
 import UploadApp from './Component/UploadApp';
 import NotFound from './Component/NotFound';
+import Games from './Component/Games';
+import JustApps from './Component/JustApps';
 
 function App() {
   return (
@@ -34,6 +36,14 @@ function App() {
           <Route path="/UploadApp">
             <NavBar />
             <UploadApp />
+          </Route>
+          <Route path="/Games">
+            <NavBar />
+            <Games />
+          </Route>
+          <Route path="/Apps">
+            <NavBar />
+            <JustApps />
           </Route>
           <Route>
             <NotFound />

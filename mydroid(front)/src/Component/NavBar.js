@@ -27,40 +27,43 @@ function NavBar() {
                             <a className={`nav-link ${window.location.pathname == "/" && styles.activeLink}`} >Home</a>
                         </li>
                     </Link>
-                    <Link to="#" >
+                    <Link to="/Games" >
 
                         <li className={`nav-item ${styles.navItem}`}>
                             <a className={`nav-link ${window.location.pathname == "/Games" && styles.activeLink}`} >Games</a>
                         </li>
                     </Link>
-                    <Link to="#" >
+                    <Link to="/Apps" >
 
                         <li className={`nav-item ${styles.navItem}`} >
                             <a className={`nav-link ${window.location.pathname == "/Apps" && styles.activeLink}`} >Apps</a>
                         </li>
                     </Link>
                 </ul>
+                <div className="d-flex ml-auto mt-1">
 
-                {UserId && <span className="ml-auto">
 
-                    <Link to="/">
-                        <p onClick={clearStorage}
-                            className={`mt-1 mb-0 p-0 nav-item ${styles.navItem2}`}>
-                            Log out
+                    {UserId && <span className="mx-4">
+
+                        <Link to="/">
+                            <p onClick={clearStorage}
+                                className={`mt-1 mb-0 p-0 nav-item ${styles.navItem2}`}>
+                                Log out
                         </p>
-                    </Link>
-                </span>}
+                        </Link>
+                    </span>}
 
-                {UserId && <span className="ml-auto">
+                    {UserId && <span >
 
-                    <Link to="/UploadApp">
-                        <p
-                            className={`mt-1 mb-0 p-0 ${`nav-item ${styles.navItem2}`} 
+                        <Link to="/UploadApp">
+                            <p
+                                className={`mt-1 mb-0 p-0 ${`nav-item ${styles.navItem2}`} 
                             ${window.location.pathname == "/UploadApp" && styles.activeLink}`}>
-                            + Upload App
+                                + Upload App
                         </p>
-                    </Link>
-                </span>}
+                        </Link>
+                    </span>}
+                </div>
 
                 {!UserId && <span className="ml-auto">
 

@@ -41,9 +41,9 @@ function Apps({ bestDataApp, bestDataGame, latestApp, latestGame }) {
                 // </div>
             }
 
-            {bestDataGame && <div className={`col-4 col-md-2 my-2 ${styles.Apps}`}>
-                <div className={`card mx-auto my-auto ${styles.Card}`}>
-                    <div className={`img-container ${styles.ImageContainer}`}>
+            {bestDataGame && <div className={`col-4 col-sm-4 col-md-2 my-2 ${styles.Apps}`}>
+                <div className={`card my-auto ${styles.Card}`}>
+                    <div className={`${styles.ImageContainer}`}>
                         <Link to={`/item/${bestDataGame.ID}`}>
                             <img className={`card-img-top ${styles.image}`}
                                 src={baseHost + bestDataGame.ImageUrl} alt="Image" />
@@ -64,9 +64,9 @@ function Apps({ bestDataApp, bestDataGame, latestApp, latestGame }) {
             </div>}
 
 
-            {latestApp && <div className={`col-4 col-md-2 my-2 ${styles.Apps}`}>
-                <div className={`card mx-auto my-auto ${styles.Card}`}>
-                    <div className={`img-container ${styles.ImageContainer}`}>
+            {latestApp && <div className={`col-4 col-sm-4 col-md-2 my-2 ${styles.Apps}`}>
+                <div className={`card my-auto ${styles.Card}`}>
+                    <div className={`${styles.ImageContainer}`}>
                         <Link to={`/item/${latestApp.ID}`}>
                             <img className={`card-img-top ${styles.image}`}
                                 src={baseHost + latestApp.ImageUrl} alt="Image" />
@@ -86,9 +86,9 @@ function Apps({ bestDataApp, bestDataGame, latestApp, latestGame }) {
                 </div>
             </div>}
 
-            {latestGame && <div className={`col-4 col-md-2 my-2 ${styles.Apps}`}>
-                <div className={`card mx-auto my-auto ${styles.Card}`}>
-                    <div className={`img-container ${styles.ImageContainer}`}>
+            {latestGame && <div className={`col-4 col-sm-4 col-md-2 my-2 ${styles.Apps}`}>
+                <div className={`card my-auto ${styles.Card}`}>
+                    <div className={`${styles.ImageContainer}`}>
                         <Link to={`/item/${latestGame.ID}`}>
                             <img className={`card-img-top ${styles.image}`}
                                 src={baseHost + latestGame.ImageUrl} alt="Image" />
