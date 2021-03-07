@@ -10,8 +10,9 @@ function UploadApp() {
     const [addDescription, setAddDescription] = useState("");
     //const [chooseCategory, setChooseCategory] = useState();
     const [category, setCategory] = useState([]);
-    const [image, setImage] = useState("it's empty");
-    const [categoryID, setCategoryID] = useState();
+    const [image, setImage] = useState("");
+    const [categoryID, setCategoryID] = useState("");
+    const [errorText, setErrorText] = useState("");
     //const [cat, setCat] = useState([]);
 
     const getCategory = () => {
@@ -67,6 +68,15 @@ function UploadApp() {
             .catch(err => {
                 console.log(err);
             })
+    }
+
+    const checkInputs = () => {
+        if ((appName && addDescription && categoryID && image) === "") {
+            setErrorText("fill all the inputs");
+        }
+        else {
+            sendApp();
+        }
     }
 
     useEffect(() => {
@@ -147,9 +157,12 @@ function UploadApp() {
                     </select>
                 </div>
                 <div className="text-center mt-5 ml-5">
-
+                    {checkInputs && <p>{errorText}</p>}
                     <button className="btn btn-outline-secondary px-4 py-2"
-                        onClick={sendApp} >
+                        onClick={() => {
+
+                            checkInputs();
+                        }} >
                         Upload
                     </button>
                 </div>
