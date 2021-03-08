@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import styles from './SignInPage.module.css';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
-import { userContext } from './Apps'
+// import { userContext } from './UserContext';
+
 
 function SignInPage() {
     const [username, setUsername] = useState("");
@@ -11,6 +12,8 @@ function SignInPage() {
     const [text, setText] = useState("");
     let history = useHistory();
     const [isValid, setValid] = useState(false);
+
+    // const userCTX = useContext(userContext);
 
     // const fetchData = React.useCallback(() => {
     //     axios({
@@ -44,7 +47,7 @@ function SignInPage() {
                 "Content-Type": "application/json",
                 //"Origin": "localhost:3000"
             },
-            //"withCredentials": true,
+            "withCredentials": true,
 
             data: {
                 username: username,
@@ -57,6 +60,7 @@ function SignInPage() {
                     //console.log(res.data.message.user_id);
                     //console.log(res.data.message.user_id);
                     let USER_ID = res.data.message.user_id;
+                    // userCTX.setUser(USER_ID);
                     // setUserId(USER_ID);
                     localStorage.setItem("userId", USER_ID);
                     setValid(true);
@@ -77,8 +81,9 @@ function SignInPage() {
 
 
     useEffect(() => {
-        handleSignIn;
-    }, [])
+        //handleSignIn;
+        console.log(userCTX);
+    }, [userCTX])
 
     // const handleClick = () => {
     //     if (isValid === true) {
@@ -109,6 +114,7 @@ function SignInPage() {
 
     return (
         <div className={`${styles.mainDiv}`}>
+
             <div className={`${styles.mainContainer}`}>
                 <h1 className="text-center font-weight-bold">MyDroid</h1>
 

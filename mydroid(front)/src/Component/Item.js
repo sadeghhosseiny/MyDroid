@@ -83,6 +83,7 @@ function Item() {
             "headers": {
                 "Content-Type": "application/json",
             },
+            "withCredentials": true,
 
             data: {
 

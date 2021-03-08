@@ -4,11 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ContextProvider } from './Component/Context';
+// import UserContext from './Component/UserContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <ContextProvider>
+      {/* <UserContext> */}
+
       <App />
+      {/* </UserContext> */}
     </ContextProvider>
 
   </React.StrictMode>,

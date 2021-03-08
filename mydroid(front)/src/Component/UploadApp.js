@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './UploadApp.module.css';
 import axios from 'axios';
-import { userID } from './SignInPage';
+// import { userID } from './SignInPage';
+// import { userContext } from './UserContext';
 
 function UploadApp() {
+
+    // const user = useContext(userContext);
     const userId = localStorage.getItem("userId");
     const [appName, setAppName] = useState("");
     //const [publisherId, setPublisherId] = useState("");
@@ -51,10 +54,11 @@ function UploadApp() {
             "headers": {
                 "Content-Type": "application/json"
             },
+            "withCredentials": true,
             data: {
                 "name": appName,
                 "description": addDescription,
-                "publisher_id": parseInt(userId, 10),
+                "publisher_id": userId,
                 "category_id": categoryID,
                 "image": b64image,
             }
@@ -80,7 +84,7 @@ function UploadApp() {
     }
 
     useEffect(() => {
-        sendApp
+        //sendApp()
     }, [])
 
     const uploadImage = async (e) => {

@@ -46,7 +46,7 @@ function HomePage() {
                 <div className={`container mx-0 px-0 ${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
 
-                        {console.log(bestApps)}
+                        {/* {console.log(bestApps)} */}
 
                         {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
 
