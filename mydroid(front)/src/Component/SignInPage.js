@@ -80,19 +80,6 @@ function SignInPage() {
     }
 
 
-    useEffect(() => {
-        //handleSignIn;
-        console.log(userCTX);
-    }, [userCTX])
-
-    // const handleClick = () => {
-    //     if (isValid === true) {
-    //         redirect("/HomePage");
-    //     } else {
-    //         console.log("fail");
-    //     }
-    // }
-
     const validateForm = () => {
         return username.length > 0 && password.length > 0;
     }
