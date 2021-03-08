@@ -53,14 +53,15 @@ function UploadApp() {
             data: {
                 "name": appName,
                 "description": addDescription,
-                "publisher_id": userId,
+                // "publisher_id": userId,
                 "category_id": categoryID,
                 "image": b64image,
-            }
+            },
+
         })
             .then(res => {
                 if ("image" === null) {
-                    console.log("fuuuuuuuuuuuuuuuck");
+                    console.log("image is empty");
                 }
                 console.log(res);
             })

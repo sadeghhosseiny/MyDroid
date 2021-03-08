@@ -33,8 +33,8 @@ function SignInPage() {
                 if (res.data.result ? res.data.result === "success" : "") {
 
                     let USER_ID = res.data.message.user_id;
-                    // userCTX.setUser(USER_ID);
-                    // setUserId(USER_ID);
+                    // // userCTX.setUser(USER_ID);
+                    // // setUserId(USER_ID);
                     localStorage.setItem("userId", USER_ID);
                     setValid(true);
                     history.push(`/`);

@@ -81,7 +81,7 @@ function Item() {
 
             data: {
 
-                "sender": parseInt(userId, 10),
+                //"sender": parseInt(userId, 10),
                 "app": parseInt(appId, 10),
                 "content": addComment
             }
@@ -100,9 +100,7 @@ function Item() {
         return addComment.length > 0;
     }
 
-    useEffect(() => {
-        handleSendComment;
-    }, [])
+
 
     return (
         <div className={`${styles.Div}`}>
