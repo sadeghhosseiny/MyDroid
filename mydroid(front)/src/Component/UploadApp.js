@@ -9,9 +9,7 @@ function UploadApp() {
     // const user = useContext(userContext);
     const userId = localStorage.getItem("userId");
     const [appName, setAppName] = useState("");
-    //const [publisherId, setPublisherId] = useState("");
     const [addDescription, setAddDescription] = useState("");
-    //const [chooseCategory, setChooseCategory] = useState();
     const [category, setCategory] = useState([]);
     const [image, setImage] = useState("");
     const [categoryID, setCategoryID] = useState("");
@@ -41,9 +39,6 @@ function UploadApp() {
         })
     }
 
-    // useEffect(() => {
-    //     findID();
-    // }, [])
 
     const sendApp = () => {
         let b64image = image.substr(image.indexOf(',') + 1);
@@ -82,10 +77,6 @@ function UploadApp() {
             sendApp();
         }
     }
-
-    useEffect(() => {
-        //sendApp()
-    }, [])
 
     const uploadImage = async (e) => {
         console.log(e.target.files[0]);
@@ -126,13 +117,7 @@ function UploadApp() {
                     </div>
                 </form>
                 <br />
-                {/* <form>
-                    <div className="form-group d-flex justify-content-center mt-2 ml-5">
-                        <label className="mx-2 pt-1" for="ID">ID</label>
-                        <input type="text" className={`form-control ${styles.inputID}`} id="ID" placeholder="ID..."
-                            onChange={(e) => setPublisherId(e.target.value)} />
-                    </div>
-                </form> */}
+
                 <br />
                 <form>
                     <div className="form-group d-flex justify-content-center mt-2 ml-3 mb-4">

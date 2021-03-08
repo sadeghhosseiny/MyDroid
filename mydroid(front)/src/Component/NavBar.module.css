@@ -10,16 +10,12 @@
 }
 
 .activeLink {
-    /* outline: none; */
-    /* text-decoration: none; */
+
     font-weight: bold;
     font-size: 18px;
     color: rgb(18, 183, 224) !important;
 }
 
-/* .NavBar {
-    min-width: 720px;
-} */
 
 .navItem {
     font-family: 'Comfortaa', cursive;
@@ -30,21 +26,6 @@
     color: rgba(255, 255, 255, .5);
 
 }
-
-/* .uploadItem {
-    width: 100% !important;
-} */
-/* 
-.alaki {
-    color: rgb(129, 173, 135) !important;
-    list-style: none;
-    box-shadow: none;
-    text-decoration: none;
-} */
-
-/* .navUl {
-    width: 100% !important;
-} */
 
 .itemsNavbar {
     width: 100% !important;

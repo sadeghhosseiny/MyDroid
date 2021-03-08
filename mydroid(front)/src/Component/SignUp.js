@@ -31,17 +31,10 @@ function SignUp() {
             })
     }
 
-    useEffect(() => {
-        handleSignUp
-    }, [])
-
     const validateForm = () => {
         return username.length > 0 && password.length > 0;
     }
 
-    // const checkField = () => {
-    //     setIsClicked(true)
-    // }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -58,11 +51,7 @@ function SignUp() {
                     <div className={`${styles.content} my-5 mx-auto`}>
                         <input className={`input ${styles.input}`} type="text" placeholder="Username"
                             onChange={(e) => setUsername(e.target.value)} />
-                        {/* {isClicked ? username.length == 0 ? (
-                            <span className={`${styles.warningIcon}`}>
-                            !
-                            </span>
-                        ) : '' : ''} */}
+
                         <span className={`${styles.border}`} />
                     </div>
                     <div className={`${styles.content} my-5 mx-auto`}>

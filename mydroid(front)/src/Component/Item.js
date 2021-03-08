@@ -47,14 +47,10 @@ function Item() {
             })
     }
 
-    // const reset = () => {
-    //     return setGetComment("");
-    // }
+ 
     const resetForm = () => {
         var event = document.getElementById("frm");
-        //setAddComment("empty");
         event.reset();
-        // {console.log(getComment)}
 
     }
 
@@ -70,13 +66,11 @@ function Item() {
 
     const handleComment = (e) => {
         e.preventDefault();
-        //setA(e.target.value)
 
     }
 
     const handleSendComment = (e) => {
-        // let ai = appId;
-        // console.log(ai);
+
         axios({
             "method": "POST",
             "url": "http://localhost:8080/app/comments",
@@ -98,14 +92,9 @@ function Item() {
             .catch(err => {
                 console.log(err);
             })
-            // .then (res => {
-            //     console.log(showComments());
-            // })
+
     }
 
-    // const GC = () => {
-    //     showComments();
-    // }
 
     const checkTextArea = () => {
         return addComment.length > 0;

@@ -10,44 +10,6 @@ export const ContextProvider = (props) => {
     const [latestApps, setLatestApps] = useState();
     const [latestGames, setLatestGames] = useState();
 
-
-    // const handleSignIn = () => {
-    //     axios({
-    //         "method": "POST",
-    //         "url": "http://localhost:8080/user/login",
-    //         "headers": {
-    //             "Content-Type": "application/json",
-    //             //"Origin": "localhost:3000"
-    //         },
-
-    //     })
-    //         .then(res => {
-    //             console.log(res.data.result);
-    //             if (res.data.result ? res.data.result === "success" : "") {
-
-    //                 console.log(res.data.message.user_id)
-    //                 //console.log(res.data.message.user_id);
-    //                 //let USER_ID = res.data.message.user_id;
-    //                 setValid(true);
-    //                 history.push("/HomePage");
-    //             }
-    //             else {
-    //                 setText("username or password does not match");
-    //             }
-    //         })
-    //         .catch(e => {
-    //             console.log(e);
-
-    //         })
-
-
-    // }
-
-    // useEffect(() => {
-    //     handleSignIn();
-    // }, [])
-
-
     useEffect(() => {
 
         axios.get(`http://localhost:8080/best/Apps`)
@@ -58,13 +20,6 @@ export const ContextProvider = (props) => {
             })
     }, [])
 
-    // const ex = () => {
-    //     useEffect(() => {
-    //         let eachItem = detail.find(item => item.ID === ID);
-    //         console.log(eachItem);
-    //         return eachItem;
-    //     }, [])
-    // }
 
     useEffect(() => {
 
@@ -98,7 +53,7 @@ export const ContextProvider = (props) => {
             bestGames,
             latestApps,
             latestGames
-            //detail: handleDetail()
+
         }}>
             {props.children}
 

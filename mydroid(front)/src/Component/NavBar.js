@@ -17,9 +17,7 @@ function NavBar() {
             <a className={`${styles.navbarBrand} navbar-brand`}>
                 MD
             </a>
-            {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-                <span className="navbar-toggler-icon"></span>
-            </button> */}
+
             <div className={`mr-auto d-flex ${styles.itemsNavbar}`} id="navbarNav">
                 <ul className={`navbar-nav ml-4 ${styles.navUl} `}>
                     <Link to="/" >

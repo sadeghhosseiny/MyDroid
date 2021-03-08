@@ -7,15 +7,13 @@ import Item from './Item';
 const baseHost = "http://localhost:8080";
 
 
-//export const userContext = React.createContext();
 function Apps({ bestDataApp, bestDataGame, latestApp, latestGame }) {
-    //const userID = useState(null);
+
 
     return (
         <React.Fragment>
-            {/* <userContext.Provider value={userID}> */}
+
             {bestDataApp && <div className={`col-4 col-sm-4 col-md-2 my-2 ${styles.Apps}`}>
-                {/* <div className={`${styles.cardContainer}`}> */}
 
                 <div className={`card my-auto ${styles.Card}`}>
                     <div className={`${styles.ImageContainer}`}>

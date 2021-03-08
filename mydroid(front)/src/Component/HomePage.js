@@ -3,8 +3,6 @@ import Apps from './Apps';
 import { MyContext } from './Context';
 import styles from './HomePage.module.css';
 
-// , { useEffect, useState }
-//import axios from 'axios';
 function HomePage() {
 
     const { bestApps } = useContext(MyContext);
@@ -15,24 +13,6 @@ function HomePage() {
 
     const { latestGames } = useContext(MyContext);
 
-    // const getApps = () => {
-    //     setData(posts);
-    // }
-    // const getApps = () => {
-    //     axios.get("http://localhost:8080/app/get")
-    //         .then(res => {
-    //             setData([res.data])
-    //             //console.log(data);
-    //             console.log(res.data)
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //         })
-    // }
-
-    // useEffect(() => {
-    //     getApps;
-    // }, [])
 
     return (
 
@@ -45,8 +25,6 @@ function HomePage() {
                 <hr className={`bg-info ml-5 mr-5 ${styles.BappsLine}`} />
                 <div className={`container mx-0 px-0 ${styles.Container}`}>
                     <div className={`row ${styles.Row}`}>
-
-                        {/* {console.log(bestApps)} */}
 
                         {bestApps ? bestApps.map(app => <Apps key={app.ID} bestDataApp={app} />) : " LOADING"}
 
@@ -83,12 +61,6 @@ function HomePage() {
                     </div>
                     <br />
                 </div>
-
-                {/* <button className="btn btn-outline-warning m-5"
-                        onClick={getApps}>Click it Bitch
-                    </button> */}
-                {/* {data ? data.map(da => <img src={da.ImageUrl} />) : "Pic, "}
-                    {data ? data.map((post) => { return <li key={post.ID}>{post.ImageUrl}</li> }) : "Loading"} */}
 
             </div>
         </React.Fragment>
