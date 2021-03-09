@@ -8,7 +8,7 @@ function NavBar() {
     const UserId = localStorage.getItem("userId");
 
     const clearStorage = () => {
-        // localStorage.clear();
+        localStorage.clear();
         window.location.reload();
     }
 

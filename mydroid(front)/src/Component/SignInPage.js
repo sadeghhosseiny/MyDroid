@@ -30,6 +30,7 @@ function SignInPage() {
         })
             .then(res => {
                 console.log(res.data.result);
+
                 if (res.data.result ? res.data.result === "success" : "") {
 
                     let USER_ID = res.data.message.user_id;
@@ -45,7 +46,10 @@ function SignInPage() {
                 }
             })
             .catch(e => {
-                console.log(e);
+                if (e.response.status === 403) {
+                    setText("username or password does not match");
+                }
+                console.log(e.response.status);
 
             })
 

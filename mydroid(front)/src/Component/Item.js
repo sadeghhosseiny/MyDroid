@@ -1,11 +1,12 @@
 import styles from './Item.module.css';
 import React, { useEffect, useState, useCallback } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import { Redirect, useHistory, useRouteMatch} from 'react-router-dom';
 import axios from 'axios';
 
 
 function Item() {
     const match = useRouteMatch();
+    let history = useHistory();
     const userId = localStorage.getItem("userId");
     const appId = match.params ? match.params.id : "Loading";
     console.log(appId)
@@ -47,6 +48,14 @@ function Item() {
             })
     }
 
+    const downloadApp = () => {
+        //window.location.href(`http://localhost:8080/app/download/${appId}`);
+        console.log("fffffffffffffffff");
+    }
+
+    // useEffect(() => {
+    //     downloadApp();
+    // }, [])
  
     const resetForm = () => {
         var event = document.getElementById("frm");
@@ -117,6 +126,9 @@ function Item() {
                         <img className={`m-5 ${styles.appImage}`} src={baseUrl + item.ImageUrl} alt="app" />
                     </div>
                 </div>
+                <div className="ml-5 pl-5">
+                    <button className="ml-5 btn p-2 btn-outline-success font-weight-bold" onClick={downloadApp}>Download</button>
+                </div>
                 <hr className={`font-weight-bold bg-info ml-5 ${styles.line}`} />
                 <div>
                     <h1 className="ml-5">Comments</h1>
@@ -149,7 +161,7 @@ function Item() {
                             handleUserComment();
                             resetForm();
                             
-                        }} className="ml-5 mt-2 btn btn-outline-success" disabled={!checkTextArea()}>
+                        }} className="ml-5 mt-2 btn btn-outline-secondary" disabled={!checkTextArea()}>
                             add comment
          
                     </button>

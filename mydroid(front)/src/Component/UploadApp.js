@@ -108,8 +108,8 @@ function UploadApp() {
 
     return (
         <React.Fragment>
+            {console.log(userId)}
             <form onSubmit={handleSubmit}>
-                {console.log(userId)}
                 <form>
                     <div className="form-group d-flex justify-content-center mt-5">
                         <label className="mx-2 pt-1" for="AppName">App name</label>

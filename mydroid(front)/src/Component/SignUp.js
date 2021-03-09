@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styles from './SignUp.module.css';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function SignUp() {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [message, setMessage] = useState("");
+    let history = useHistory();
     // const [isClicked, setIsClicked] = useState(false);
 
     const handleSignUp = () => {
@@ -24,9 +26,19 @@ function SignUp() {
 
         })
             .then(res => {
-                console.log(res);
+                if (res.request.status == 200) {
+                    console.log("ggggggggggggggggggg");
+                    history.push("/sign in")
+                }
+
+                console.log("d3", res.request.status);
+                console.log("d4", res.status);
             })
             .catch(err => {
+                if (err.response.status == 403) {
+                    setMessage(err.response.data.message);
+
+                }
                 console.log(err);
             })
     }
@@ -60,13 +72,16 @@ function SignUp() {
 
                         <span className={`${styles.border}`}></span>
                     </div>
+                    <div className="text-center text-danger">
+                        {handleSignUp ? message ? <p>{message}</p> : "" : ""}
+                    </div>
                     <div className="text-center mb-3">
-                        <Link to="/sign in">
-                            <button onClick={handleSignUp} disabled={!validateForm()}
-                                className="btn btn-outline-info text-capitalize py-3 px-5">
-                                sign up
+                        {/* <Link to="/sign in"> */}
+                        <button onClick={handleSignUp} disabled={!validateForm()}
+                            className="btn btn-outline-info text-capitalize py-3 px-5">
+                            sign up
                         </button>
-                        </Link>
+                        {/* </Link> */}
                     </div>
                 </form>
             </div>
