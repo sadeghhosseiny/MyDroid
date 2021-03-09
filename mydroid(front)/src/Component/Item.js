@@ -1,6 +1,6 @@
 import styles from './Item.module.css';
 import React, { useEffect, useState, useCallback } from 'react';
-import { Redirect, useHistory, useRouteMatch} from 'react-router-dom';
+import { Redirect, useHistory, useRouteMatch } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -9,7 +9,7 @@ function Item() {
     let history = useHistory();
     const userId = localStorage.getItem("userId");
     const appId = match.params ? match.params.id : "Loading";
-    console.log(appId)
+    //console.log(appId)
     const baseUrl = "http://localhost:8080"
 
     const [item, setItem] = useState([])
@@ -43,7 +43,7 @@ function Item() {
         axios.get(`http://localhost:8080/app/comments/${appId}`)
             .then(res => {
                 const parseComment = (res.data.message);
-                console.log("rrrrrrrrrrrr",parseComment);
+                console.log("rrrrrrrrrrrr", parseComment);
                 setComment(parseComment)
             })
             .catch(err => {
@@ -62,7 +62,7 @@ function Item() {
     const showName = () => {
 
         comment.forEach(com => {
-            //const ss = com.App;
+            setS(com.App);
             //setS(com.App);
             //console.log("s",s);
             ss.push(com.App);
@@ -70,6 +70,7 @@ function Item() {
             setName(com.App);
 
         })
+        console.log("s", s);
     }
 
     useEffect(() => {
@@ -145,9 +146,9 @@ function Item() {
                     </div>
                 </div>
                 {userId && <div className="ml-5 pl-5">
-                <a href={`http://localhost:8080/app/download/${appId}`}>
-                    <button className="ml-5 btn p-2 btn-outline-success font-weight-bold" onClick={downloadApp}>Download</button>
-                </a>
+                    <a href={`http://localhost:8080/app/download/${appId}`}>
+                        <button className="ml-5 btn p-2 btn-outline-success font-weight-bold" onClick={downloadApp}>Download</button>
+                    </a>
                 </div>}
                 <hr className={`font-weight-bold bg-info ml-5 ${styles.line}`} />
                 <div>
@@ -156,21 +157,21 @@ function Item() {
                 <div>
                     <div className={`ml-5 my-2 ${styles.commentDiv}`}>
                         {comment ? comment.map((com, i) =>
-                        <li key={"com" + i} className={`px-2 my-2 py-2 ${styles.lCom}`}>
+                            <li key={"com" + i} className={`px-2 my-2 py-2 ${styles.lCom}`}>
 
                                 <p>{ss[i]}</p>
 
-                            {com.Content}
+                                {com.Content}
                             </li>)
-                             : ""}
+                            : ""}
                     </div>
                     <div className={`ml-5 my-2 ${styles.userComment}`}>
 
-                        {getComment ? getComment.map((gCom, i)=>
-                        <p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>
-                            <p>{name}</p>
-                            {gCom}
-                            </p>):""}
+                        {getComment ? getComment.map((gCom, i) =>
+                            <p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>
+                                <p>You</p>
+                                {gCom}
+                            </p>) : ""}
 
                     </div>
                 </div>
