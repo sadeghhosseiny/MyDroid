@@ -147,9 +147,9 @@ function Item() {
                         <img className={`m-5 ${styles.appImage}`} src={baseUrl + item.ImageUrl} alt="app" />
                     </div>
                 </div>
-                <div className="ml-5 pl-5">
+                {userId && <div className="ml-5 pl-5">
                     <button className="ml-5 btn p-2 btn-outline-success font-weight-bold" onClick={downloadApp}>Download</button>
-                </div>
+                </div>}
                 <hr className={`font-weight-bold bg-info ml-5 ${styles.line}`} />
                 <div>
                     <h1 className="ml-5">Comments</h1>
