@@ -21,7 +21,7 @@ function UploadApp() {
             .then(res => {
                 console.log(res.data.message);
                 setCategory(res.data.message);
-                console.log(res.data.message[0]);
+                console.log("fffffffffffffff", res.data.message);
             })
 
     }
@@ -108,7 +108,7 @@ function UploadApp() {
 
     return (
         <React.Fragment>
-            {console.log(userId)}
+            {/* {console.log(userId)} */}
             <form onSubmit={handleSubmit}>
                 <form>
                     <div className="form-group d-flex justify-content-center mt-5">

@@ -16,6 +16,9 @@ function Item() {
     const [comment, setComment] = useState([])
     const [addComment, setAddComment] = useState("")
     const [getComment, setGetComment] = useState([]);
+    const [s, setS] = useState("hd");
+    const [ss, setSS] = useState([]);
+    const [name, setName] = useState([]);
 
     useEffect(() => {
         fetchItem();
@@ -40,7 +43,7 @@ function Item() {
         axios.get(`http://localhost:8080/app/comments/${appId}`)
             .then(res => {
                 const parseComment = (res.data.message);
-                console.log(parseComment);
+                console.log("rrrrrrrrrrrr",parseComment);
                 setComment(parseComment)
             })
             .catch(err => {
@@ -56,6 +59,25 @@ function Item() {
     // useEffect(() => {
     //     downloadApp();
     // }, [])
+
+    const showName = () => {
+        
+        comment.forEach(com => {
+            //const ss = com.App;
+            console.log("bitch",com.App);
+            //setS(com.App);
+            //console.log("s",s);
+            ss.push(com.App);
+            
+            setName(com.App);
+
+        })
+        console.log("sssssssssssssssssssssssss",ss);
+    }
+
+    useEffect(() => {
+        showName();
+    }, [showName])
  
     const resetForm = () => {
         var event = document.getElementById("frm");
@@ -104,7 +126,6 @@ function Item() {
 
     }
 
-
     const checkTextArea = () => {
         return addComment.length > 0;
     }
@@ -135,14 +156,22 @@ function Item() {
                 </div>
                 <div>
                     <div className={`ml-5 my-2 ${styles.commentDiv}`}>
-                        {comment ? comment.map((com, i) => <li key={"com" + i} className={`px-2 my-2 py-2 ${styles.lCom}`}>
+                        {comment ? comment.map((com, i) => 
+                        <li key={"com" + i} className={`px-2 my-2 py-2 ${styles.lCom}`}>
+                            
+                                <p>{ss[i]}</p>
+                                
                             {com.Content}
                             </li>)
                              : ""}
                     </div>
                     <div className={`ml-5 my-2 ${styles.userComment}`}>
-                       
-                        {getComment ? getComment.map((gCom, i)=><p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>{gCom}</p>):""}
+                        
+                        {getComment ? getComment.map((gCom, i)=>
+                        <p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>
+                            <p>{name}</p>
+                            {gCom}
+                            </p>):""}
                         
                     </div>
                 </div>
@@ -159,6 +188,7 @@ function Item() {
                         <button onClick={() => {
                             handleSendComment();
                             handleUserComment();
+                            showName();
                             resetForm();
                             
                         }} className="ml-5 mt-2 btn btn-outline-secondary" disabled={!checkTextArea()}>
