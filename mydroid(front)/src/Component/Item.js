@@ -53,7 +53,6 @@ function Item() {
 
     const downloadApp = () => {
         //window.location.href(`http://localhost:8080/app/download/${appId}`);
-        console.log("fffffffffffffffff");
     }
 
     // useEffect(() => {
@@ -61,24 +60,22 @@ function Item() {
     // }, [])
 
     const showName = () => {
-        
+
         comment.forEach(com => {
             //const ss = com.App;
-            console.log("bitch",com.App);
             //setS(com.App);
             //console.log("s",s);
             ss.push(com.App);
-            
+
             setName(com.App);
 
         })
-        console.log("sssssssssssssssssssssssss",ss);
     }
 
     useEffect(() => {
         showName();
     }, [showName])
- 
+
     const resetForm = () => {
         var event = document.getElementById("frm");
         event.reset();
@@ -148,7 +145,9 @@ function Item() {
                     </div>
                 </div>
                 <div className="ml-5 pl-5">
+                <a href={`http://localhost:8080/app/download/${appId}`}>
                     <button className="ml-5 btn p-2 btn-outline-success font-weight-bold" onClick={downloadApp}>Download</button>
+                </a>
                 </div>
                 <hr className={`font-weight-bold bg-info ml-5 ${styles.line}`} />
                 <div>
@@ -156,23 +155,23 @@ function Item() {
                 </div>
                 <div>
                     <div className={`ml-5 my-2 ${styles.commentDiv}`}>
-                        {comment ? comment.map((com, i) => 
+                        {comment ? comment.map((com, i) =>
                         <li key={"com" + i} className={`px-2 my-2 py-2 ${styles.lCom}`}>
-                            
+
                                 <p>{ss[i]}</p>
-                                
+
                             {com.Content}
                             </li>)
                              : ""}
                     </div>
                     <div className={`ml-5 my-2 ${styles.userComment}`}>
-                        
+
                         {getComment ? getComment.map((gCom, i)=>
                         <p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>
                             <p>{name}</p>
                             {gCom}
                             </p>):""}
-                        
+
                     </div>
                 </div>
 
@@ -190,10 +189,10 @@ function Item() {
                             handleUserComment();
                             showName();
                             resetForm();
-                            
+
                         }} className="ml-5 mt-2 btn btn-outline-secondary" disabled={!checkTextArea()}>
                             add comment
-         
+
                     </button>
                     </div>
                 </form>}
