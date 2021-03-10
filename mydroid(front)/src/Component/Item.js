@@ -51,13 +51,6 @@ function Item() {
             })
     }
 
-    const downloadApp = () => {
-        //window.location.href(`http://localhost:8080/app/download/${appId}`);
-    }
-
-    // useEffect(() => {
-    //     downloadApp();
-    // }, [])
 
     const showName = () => {
 
@@ -85,6 +78,8 @@ function Item() {
 
     const handleUserComment = () => {
         setGetComment([...getComment, addComment])
+        window.location.reload();
+
     }
 
 
@@ -147,7 +142,7 @@ function Item() {
                 </div>
                 {userId && <div className="ml-5 pl-5">
                     <a href={`http://localhost:8080/app/download/${appId}`}>
-                        <button className="ml-5 btn p-2 btn-outline-success font-weight-bold" onClick={downloadApp}>Download</button>
+                        <button className="ml-5 btn p-2 btn-outline-success font-weight-bold" >Download</button>
                     </a>
                 </div>}
                 <hr className={`font-weight-bold bg-info ml-5 ${styles.line}`} />
@@ -160,7 +155,7 @@ function Item() {
                             <li key={"com" + i} className={`px-2 my-2 py-2 ${styles.lCom}`}>
 
                                 <p>{ss[i]}</p>
-
+                                <hr className="bg-white w-25" />
                                 {com.Content}
                             </li>)
                             : ""}
@@ -169,7 +164,8 @@ function Item() {
 
                         {getComment ? getComment.map((gCom, i) =>
                             <p key={"gCom" + i} className={`py-2 my-2 px-2 ${styles.pCom}`}>
-                                <p>You</p>
+                                <p>{name}</p>
+                                <hr className="bg-white w-25" />
                                 {gCom}
                             </p>) : ""}
 
@@ -187,8 +183,8 @@ function Item() {
 
                         <button onClick={() => {
                             handleSendComment();
-                            handleUserComment();
                             showName();
+                            handleUserComment();
                             resetForm();
 
                         }} className="ml-5 mt-2 btn btn-outline-secondary" disabled={!checkTextArea()}>
