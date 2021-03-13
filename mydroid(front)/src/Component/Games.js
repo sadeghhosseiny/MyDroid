@@ -67,6 +67,22 @@ function Games() {
     }
     )
 
+    const handleNextBtn = () => {
+        setCurrentPage(currentPage + 1)
+        if (currentPage + 1 > maxPageNumberLimit) {
+            setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+            setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+        }
+    }
+
+    const handlePrevBtn = () => {
+        setCurrentPage(currentPage - 1)
+        if ((currentPage - 1) % pageNumberLimit == 0) {
+            setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+            setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+        }
+    }
+
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = bestGames ? bestGames.slice(indexOfFirstItem, indexOfLastItem) : "";
@@ -79,16 +95,16 @@ function Games() {
             {/* <img src={under_construction} alt="pic" className={` ${ styles.gamePage }`} /> */}
             {console.log(bestGames)}
             <div>
-
-                {renderPageNumber}
+                {renderData(currentItems)}
             </div>
             <div>
-
-
-                {renderData(currentItems)}
-
-
-
+                <div>
+                    <button className="btn btn-dark" onClick={handlePrevBtn}>Previous</button>
+                </div>
+                {renderPageNumber}
+                <div>
+                    <button className="btn btn-primary" onClick={handleNextBtn}>Next</button>
+                </div>
             </div>
         </div>
 
