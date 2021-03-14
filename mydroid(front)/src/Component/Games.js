@@ -56,7 +56,8 @@ function Games() {
         if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
 
             return (
-                <li key={number} id={number} onClick={handleClick}>
+                <li key={number} id={number} className={`${currentPage == number && styles.active} px-2 py-2 ${styles.pageNumbers}`}
+                    onClick={handleClick}>
                     {number}
                 </li>
             )
@@ -97,13 +98,16 @@ function Games() {
             <div>
                 {renderData(currentItems)}
             </div>
-            <div>
+            <div className={`d-flex my-2 justify-content-center`}>
+
                 <div>
-                    <button className="btn btn-dark" onClick={handlePrevBtn}>Previous</button>
+                    <button className="btn btn-dark mx-2" onClick={handlePrevBtn}>Previous</button>
                 </div>
+
                 {renderPageNumber}
+
                 <div>
-                    <button className="btn btn-primary" onClick={handleNextBtn}>Next</button>
+                    <button className="btn btn-primary mx-2" onClick={handleNextBtn}>Next</button>
                 </div>
             </div>
         </div>

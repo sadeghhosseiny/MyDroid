@@ -1,4 +1,16 @@
-.gamePage {
-    width: 740px;
-    height: 800px;
+.pageNumbers {
+    margin-right: 5px;
+    list-style: none;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.pageNumbers:hover {
+    color: white;
+    background-color: rgb(42, 39, 39);
+}
+
+.active {
+    color: white;
+    background-color: rgb(42, 39, 39);
 }
