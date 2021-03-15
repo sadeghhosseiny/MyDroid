@@ -42,6 +42,10 @@ function Games() {
         getDescription();
     }, [offset])
 
+    // const el = null;
+    // if (offset == 0) {
+    //     previousLabel = null
+    // }
 
     return (
         <div className="Games">
@@ -56,7 +60,7 @@ function Games() {
                 previousLabel={"previous"}
                 nextLabel={"next"}
                 breakLabel={"..."}
-                disabledClassName={`${offset == 0 ? styles.prev : ""}`}
+                disabledClassName={`${offset == 0 ? styles.prev : offset == pageCount - 1 ? styles.next : ""}`}
                 breakClassName={"break-me"}
                 pageCount={pageCount}
                 marginPagesDisplayed={1}
