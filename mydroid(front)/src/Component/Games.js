@@ -49,11 +49,14 @@ function Games() {
             {console.log("offset", offset)}
             {console.log("data", data)}
             {console.log("dataLength", data.length)}
-            {data}
+            <div className="d-flex justify-content-center">
+                {data}
+            </div>
             <ReactPaginate
-                previousLabel={`prev`}
+                previousLabel={"previous"}
                 nextLabel={"next"}
                 breakLabel={"..."}
+                disabledClassName={`${offset == 0 ? styles.prev : ""}`}
                 breakClassName={"break-me"}
                 pageCount={pageCount}
                 marginPagesDisplayed={1}
