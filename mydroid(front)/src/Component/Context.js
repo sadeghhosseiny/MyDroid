@@ -5,10 +5,10 @@ export const MyContext = React.createContext();
 
 export const ContextProvider = (props) => {
 
-    const [bestApps, setBestApps] = useState();
-    const [bestGames, setBestgames] = useState();
-    const [latestApps, setLatestApps] = useState();
-    const [latestGames, setLatestGames] = useState();
+    const [bestApps, setBestApps] = useState([]);
+    const [bestGames, setBestgames] = useState([]);
+    const [latestApps, setLatestApps] = useState([]);
+    const [latestGames, setLatestGames] = useState([]);
 
     useEffect(() => {
 

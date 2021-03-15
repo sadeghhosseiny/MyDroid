@@ -17,9 +17,10 @@ function Games() {
 
     const getDescription = () => {
 
-        const data = bestGames ? bestGames : "";
+        const data = bestGames ? bestGames : [];
         //const data = res.data.data;
         const Slice = data.slice(offset, offset + perPage);
+        console.log("SLICE", Slice);
         const postData = Slice.map(pd =>
             <p key={pd.ID}>
                 {pd.Description}
@@ -40,7 +41,8 @@ function Games() {
 
     useEffect(() => {
         getDescription();
-    }, [offset])
+
+    }, [offset, bestGames])
 
     // const el = null;
     // if (offset == 0) {
@@ -49,10 +51,11 @@ function Games() {
 
     return (
         <div className="Games">
-            {console.log("perPage", perPage)}
+            {console.log('gam', bestGames)}
+            {/* {console.log("perPage", perPage)}
             {console.log("offset", offset)}
             {console.log("data", data)}
-            {console.log("dataLength", data.length)}
+            {console.log("dataLength", data.length)} */}
             <div className="d-flex justify-content-center">
                 {data}
             </div>
