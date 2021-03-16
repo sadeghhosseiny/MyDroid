@@ -1,12 +1,58 @@
-import React from 'react';
-import under_construction from '../under-construction.jpg';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './JustApps.module.css';
-
+import { MyContext } from './Context';
+import ReactPaginate from 'react-paginate';
 
 function JustApps() {
+    const { bestApps } = useContext(MyContext);
+    const [offset, setOffset] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
+    const [perPage] = useState(1);
+    const [data, setData] = useState([]);
+
+    const getApps = () => {
+        const data = bestApps ? bestApps : [];
+        console.log("data", data)
+        const Slice = data.slice(offset, offset + perPage);
+        console.log(Slice)
+        const postData = Slice.map(pd => {
+            return (
+
+
+                <div key={pd.ID}>
+                    <p>{pd.Description}</p>
+                </div>
+            )
+        })
+        setData(postData);
+        setPageCount(Math.ceil(data.length / perPage));
+    }
+
+    const handleClick = (e) => {
+        const selectedPage = e.selected;
+        const Offset = selectedPage * perPage;
+        setOffset(Offset);
+    }
+
+    useEffect(() => {
+        getApps();
+    }, [offset, bestApps])
+
+    console.log("bestapps", bestApps);
     return (
-        <div className="d-flex justify-content-center my-3">
-            <img src={under_construction} alt="pic" className={`${styles.justAppsPage}`} />
+        <div>
+            {data}
+            {console.log("MAIN", data)}
+
+            <div>
+                <ReactPaginate
+                    pageCount={pageCount}
+                    pageRangeDisplayed={2}
+                    marginPagesDisplayed={1}
+                    onPageChange={handleClick}
+
+                />
+            </div>
         </div>
     )
 }
