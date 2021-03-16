@@ -83,3 +83,37 @@
 .next>a:hover {
     color: #C6C6C6 !important;
 }
+
+.image {
+    border-radius: 45px;
+}
+
+.gameName {
+    font-family: 'Comfortaa', cursive;
+    font-size: 50px;
+}
+
+.pubDiv {
+    font-size: 40px;
+    margin-top: -25px;
+    margin-bottom: -15px;
+}
+
+/* .pubDiv2 {
+    margin-top: -18px;
+} */
+
+.pub {
+    font-family: 'Comfortaa', cursive;
+    font-size: 40px;
+    color: darkblue;
+}
+
+.from {
+    font-size: 40px;
+}
+
+.description {
+    font-family: 'Comfortaa', cursive;
+    font-size: 25px;
+}
