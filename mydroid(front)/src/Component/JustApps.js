@@ -17,8 +17,6 @@ function JustApps() {
         console.log(Slice)
         const postData = Slice.map(pd => {
             return (
-
-
                 <div key={pd.ID}>
                     <p>{pd.Description}</p>
                 </div>
@@ -46,11 +44,16 @@ function JustApps() {
 
             <div>
                 <ReactPaginate
+                    previousLabel={"previous"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    disabledClassName={`${offset == 0 ? styles.prev : offset == pageCount - 1 ? styles.next : ""}`}
                     pageCount={pageCount}
                     pageRangeDisplayed={2}
                     marginPagesDisplayed={1}
                     onPageChange={handleClick}
-
+                    containerClassName={`${styles.pagination}`}
+                    activeClassName={`active ${styles.active}`}
                 />
             </div>
         </div>
