@@ -21,7 +21,7 @@ function Games() {
         console.log("SLICE", Slice);
         const postData = Slice.map(pd =>
             <div key={pd.ID}>
-                <div className={`${styles.imageDiv}`}>
+                <div className={`d-flex justify-content-center ${styles.imageDiv}`}>
 
                     <img className={`my-4 ${styles.image}`} src={baseUrl + pd.ImageUrl} alt="photo Of App" />
                 </div>
