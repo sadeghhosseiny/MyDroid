@@ -10,7 +10,7 @@ function Item() {
     const userId = localStorage.getItem("userId");
     const appId = match.params ? match.params.id : "Loading";
     //console.log(appId)
-    const baseUrl = "http://localhost:8080"
+    const baseUrl = "http://database8080"
 
     const [item, setItem] = useState([])
     const [comment, setComment] = useState([])
@@ -26,7 +26,7 @@ function Item() {
     }, [])
 
     const fetchItem = () => {
-        axios.get(`http://localhost:8080/app/get/${appId}`)
+        axios.get(`http://database8080/app/get/${appId}`)
             .then(res => {
                 setItem(res.data.message);
                 console.log(res.data.message.ImageUrl)
@@ -40,7 +40,7 @@ function Item() {
     }
 
     const showComments = () => {
-        axios.get(`http://localhost:8080/app/comments/${appId}`)
+        axios.get(`http://database8080/app/comments/${appId}`)
             .then(res => {
                 const parseComment = (res.data.message);
                 console.log("rrrrrrrrrrrr", parseComment);
@@ -97,7 +97,7 @@ function Item() {
 
         axios({
             "method": "POST",
-            "url": "http://localhost:8080/app/comments",
+            "url": "http://database8080/app/comments",
             "headers": {
                 "Content-Type": "application/json",
             },
@@ -141,7 +141,7 @@ function Item() {
                     </div>
                 </div>
                 {userId && <div className="ml-5 pl-5">
-                    <a href={`http://localhost:8080/app/download/${appId}`}>
+                    <a href={`http://database8080/app/download/${appId}`}>
                         <button className="ml-5 btn p-2 btn-outline-success font-weight-bold" >Download</button>
                     </a>
                 </div>}

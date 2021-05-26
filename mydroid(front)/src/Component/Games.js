@@ -14,7 +14,7 @@ function Games() {
     //const [currentpage, setCurrentpage] = useState(0);
 
     const getDescription = () => {
-        const baseUrl = "http://localhost:8080";
+        const baseUrl = "http://database8080";
         const data = bestGames ? bestGames : [];
         //const data = res.data.data;
         const Slice = data.slice(offset, offset + perPage);
