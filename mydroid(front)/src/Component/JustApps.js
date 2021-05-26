@@ -11,7 +11,7 @@ function JustApps() {
     const [data, setData] = useState([]);
 
     const getApps = () => {
-        const baseUrl = "http://database8080";
+        const baseUrl = "http://database:8080";
         const data = bestApps ? bestApps : [];
         console.log("data", data)
         const Slice = data.slice(offset, offset + perPage);
