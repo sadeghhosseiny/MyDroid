@@ -17,7 +17,7 @@ function UploadApp() {
     //const [cat, setCat] = useState([]);
 
     const getCategory = () => {
-        axios.get(`http://backend:8080/category/all`)
+        axios.get(`/api/category/all`)
             .then(res => {
                 console.log(res.data.message);
                 setCategory(res.data.message);
@@ -45,7 +45,7 @@ function UploadApp() {
 
         axios({
             "method": "POST",
-            "url": "http://backend:8080/app/upload",
+            "url": "/api/app/upload",
             "headers": {
                 "Content-Type": "application/json"
             },

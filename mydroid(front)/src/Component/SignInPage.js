@@ -16,7 +16,7 @@ function SignInPage() {
     const handleSignIn = () => {
         axios({
             "method": "POST",
-            "url": "http://backend:8080/user/login",
+            "url": "/api/user/login",
             "headers": {
                 "Content-Type": "application/json",
                 //"Origin": "backend:3000"

@@ -14,7 +14,7 @@ function SignUp() {
     const handleSignUp = () => {
         axios({
             "method": "POST",
-            "url": "http://backend:8080/user/signup",
+            "url": "/api/user/signup",
             "headers": {
                 "Content-Type": "application/json"
             },
