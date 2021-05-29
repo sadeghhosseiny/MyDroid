@@ -12,7 +12,7 @@ export const ContextProvider = (props) => {
 
     useEffect(() => {
 
-        axios.get(`http://database:8080/best/Apps`)
+        axios.get(`http://backend:8080/best/Apps`)
             .then(res => {
                 const resBestApps = (res.data.data);
                 setBestApps(resBestApps);
@@ -23,7 +23,7 @@ export const ContextProvider = (props) => {
 
     useEffect(() => {
 
-        axios.get(`http://database:8080/best/Games`)
+        axios.get(`http://backend:8080/best/Games`)
             .then(res => {
                 const resBestGames = res.data.data;
                 setBestgames(resBestGames);
@@ -32,7 +32,7 @@ export const ContextProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        axios.get(`http://database:8080/latest/Apps`)
+        axios.get(`http://backend:8080/latest/Apps`)
             .then(res => {
                 const resLatestApps = res.data.data;
                 setLatestApps(resLatestApps);
@@ -40,7 +40,7 @@ export const ContextProvider = (props) => {
     }, [])
 
     useEffect(() => {
-        axios.get(`http://database:8080/latest/Games`)
+        axios.get(`http://backend:8080/latest/Games`)
             .then(res => {
                 const resLatestGames = res.data.data;
                 setLatestGames(resLatestGames);

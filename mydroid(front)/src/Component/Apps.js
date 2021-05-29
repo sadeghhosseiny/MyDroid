@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Item from './Item';
 
 
-const baseHost = "http://database:8080";
+const baseHost = "http://backend:8080";
 
 
 function Apps({ bestDataApp, bestDataGame, latestApp, latestGame }) {

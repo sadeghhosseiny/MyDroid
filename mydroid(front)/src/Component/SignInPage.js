@@ -16,10 +16,10 @@ function SignInPage() {
     const handleSignIn = () => {
         axios({
             "method": "POST",
-            "url": "http://database:8080/user/login",
+            "url": "http://backend:8080/user/login",
             "headers": {
                 "Content-Type": "application/json",
-                //"Origin": "database:3000"
+                //"Origin": "backend:3000"
             },
             "withCredentials": true,
 
